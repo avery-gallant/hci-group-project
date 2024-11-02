@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkqm36ehhqyxk"]
+
+[ext_resource type="Script" path="res://TouchScreenButton.gd" id="1_o6xhv"]
+
+[sub_resource type="Gradient" id="Gradient_pnxdi"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_etue2"]
+gradient = SubResource("Gradient_pnxdi")
+
+[sub_resource type="Gradient" id="Gradient_i6dlb"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gp782"]
+gradient = SubResource("Gradient_i6dlb")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
+[node name="TouchScreenButton" type="TouchScreenButton"]
+texture_normal = SubResource("GradientTexture2D_etue2")
+texture_pressed = SubResource("GradientTexture2D_gp782")
+script = ExtResource("1_o6xhv")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="released" from="." to="." method="_on_released"]
