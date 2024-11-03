@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://4sdb1k7368h3"]
+[gd_scene load_steps=9 format=3 uid="uid://4sdb1k7368h3"]
 
 [ext_resource type="Texture2D" uid="uid://c3pochkd1tv15" path="res://texture/background.png" id="1_ba1ho"]
 [ext_resource type="PackedScene" uid="uid://bkqm36ehhqyxk" path="res://soundbutton.tscn" id="2_y2sr4"]
 [ext_resource type="Script" path="res://h_slider.gd" id="4_y3pbl"]
+[ext_resource type="Texture2D" uid="uid://pbqytudsrd5u" path="res://texture/pause.png" id="5_0nrjk"]
 [ext_resource type="Texture2D" uid="uid://ddyup8d3jy758" path="res://texture/Screenshot 2024-11-02 173809.png" id="5_g81fy"]
+[ext_resource type="Texture2D" uid="uid://pl1856kql35f" path="res://texture/play_btn.png" id="6_q0cug"]
+[ext_resource type="Texture2D" uid="uid://bfjpftqiqstwm" path="res://texture/record.png" id="7_2782m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7a8xa"]
 size = Vector2(1000, 800)
@@ -100,3 +103,29 @@ offset_top = 698.0
 offset_right = 547.0
 offset_bottom = 766.0
 icon = ExtResource("5_g81fy")
+
+[node name="PauseButton" type="Button" parent="."]
+offset_left = 762.0
+offset_top = 700.0
+offset_right = 827.0
+offset_bottom = 765.0
+icon = ExtResource("5_0nrjk")
+flat = true
+
+[node name="PlayButton" type="Button" parent="."]
+offset_left = 858.0
+offset_top = 683.0
+offset_right = 960.0
+offset_bottom = 781.0
+toggle_mode = true
+action_mode = 0
+icon = ExtResource("6_q0cug")
+flat = true
+
+[node name="RecordButton" type="Button" parent="."]
+offset_left = 667.0
+offset_top = 701.0
+offset_right = 733.0
+offset_bottom = 764.0
+icon = ExtResource("7_2782m")
+flat = true
