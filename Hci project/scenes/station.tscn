@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://4sdb1k7368h3"]
+[gd_scene load_steps=6 format=3 uid="uid://4sdb1k7368h3"]
 
 [ext_resource type="Texture2D" uid="uid://c3pochkd1tv15" path="res://texture/background.png" id="1_ya6gq"]
-[ext_resource type="Texture2D" uid="uid://ufpyrsd51ibc" path="res://texture/button_still.jpg" id="2_4qrrj"]
-[ext_resource type="Texture2D" uid="uid://def1fhisuegrr" path="res://texture/button_pressed.jpg" id="3_23mle"]
+[ext_resource type="PackedScene" uid="uid://bkqm36ehhqyxk" path="res://soundbutton.tscn" id="2_y2sr4"]
 [ext_resource type="PackedScene" uid="uid://lhgkadjaplcf" path="res://scenes/metronome.tscn" id="5_8ahy3"]
 [ext_resource type="Texture2D" uid="uid://ddyup8d3jy758" path="res://texture/Screenshot 2024-11-02 173809.png" id="5_kq2bn"]
 
@@ -22,77 +21,53 @@ position = Vector2(499, 402.5)
 scale = Vector2(0.523958, 0.741667)
 texture = ExtResource("1_ya6gq")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+[node name="SoundButton" parent="." instance=ExtResource("2_y2sr4")]
 position = Vector2(103, 77)
 scale = Vector2(0.348, 0.348)
-texture_normal = ExtResource("2_4qrrj")
-texture_pressed = ExtResource("3_23mle")
 
-[node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
+[node name="SoundButton2" parent="." instance=ExtResource("2_y2sr4")]
 position = Vector2(309, 77)
 scale = Vector2(0.348, 0.348)
-texture_normal = ExtResource("2_4qrrj")
-texture_pressed = ExtResource("3_23mle")
 
-[node name="TouchScreenButton3" type="TouchScreenButton" parent="."]
+[node name="SoundButton3" parent="." instance=ExtResource("2_y2sr4")]
 position = Vector2(515, 77)
 scale = Vector2(0.348, 0.348)
-texture_normal = ExtResource("2_4qrrj")
-texture_pressed = ExtResource("3_23mle")
 
-[node name="TouchScreenButton4" type="TouchScreenButton" parent="."]
+[node name="SoundButton4" parent="." instance=ExtResource("2_y2sr4")]
 position = Vector2(721, 77)
 scale = Vector2(0.348, 0.348)
-texture_normal = ExtResource("2_4qrrj")
-texture_pressed = ExtResource("3_23mle")
 
-[node name="TouchScreenButton5" type="TouchScreenButton" parent="."]
+[node name="SoundButton5" parent="." instance=ExtResource("2_y2sr4")]
 position = Vector2(103, 283)
 scale = Vector2(0.348, 0.348)
-texture_normal = ExtResource("2_4qrrj")
-texture_pressed = ExtResource("3_23mle")
 
-[node name="TouchScreenButton6" type="TouchScreenButton" parent="."]
+[node name="SoundButton6" parent="." instance=ExtResource("2_y2sr4")]
 position = Vector2(309, 283)
 scale = Vector2(0.348, 0.348)
-texture_normal = ExtResource("2_4qrrj")
-texture_pressed = ExtResource("3_23mle")
 
-[node name="TouchScreenButton7" type="TouchScreenButton" parent="."]
+[node name="SoundButton7" parent="." instance=ExtResource("2_y2sr4")]
 position = Vector2(515, 283)
 scale = Vector2(0.348, 0.348)
-texture_normal = ExtResource("2_4qrrj")
-texture_pressed = ExtResource("3_23mle")
 
-[node name="TouchScreenButton8" type="TouchScreenButton" parent="."]
+[node name="SoundButton8" parent="." instance=ExtResource("2_y2sr4")]
 position = Vector2(721, 283)
 scale = Vector2(0.348, 0.348)
-texture_normal = ExtResource("2_4qrrj")
-texture_pressed = ExtResource("3_23mle")
 
-[node name="TouchScreenButton9" type="TouchScreenButton" parent="."]
+[node name="SoundButton9" parent="." instance=ExtResource("2_y2sr4")]
 position = Vector2(103, 490)
 scale = Vector2(0.348, 0.348)
-texture_normal = ExtResource("2_4qrrj")
-texture_pressed = ExtResource("3_23mle")
 
-[node name="TouchScreenButton10" type="TouchScreenButton" parent="."]
+[node name="SoundButton10" parent="." instance=ExtResource("2_y2sr4")]
 position = Vector2(309, 490)
 scale = Vector2(0.348, 0.348)
-texture_normal = ExtResource("2_4qrrj")
-texture_pressed = ExtResource("3_23mle")
 
-[node name="TouchScreenButton11" type="TouchScreenButton" parent="."]
+[node name="SoundButton11" parent="." instance=ExtResource("2_y2sr4")]
 position = Vector2(515, 490)
 scale = Vector2(0.348, 0.348)
-texture_normal = ExtResource("2_4qrrj")
-texture_pressed = ExtResource("3_23mle")
 
-[node name="TouchScreenButton12" type="TouchScreenButton" parent="."]
+[node name="SoundButton12" parent="." instance=ExtResource("2_y2sr4")]
 position = Vector2(721, 490)
 scale = Vector2(0.348, 0.348)
-texture_normal = ExtResource("2_4qrrj")
-texture_pressed = ExtResource("3_23mle")
 
 [node name="Button" type="Button" parent="."]
 offset_left = 446.0
