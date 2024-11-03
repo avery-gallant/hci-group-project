@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c3pochkd1tv15" path="res://texture/background.png" id="1_ya6gq"]
 [ext_resource type="Texture2D" uid="uid://ufpyrsd51ibc" path="res://texture/button_still.jpg" id="2_4qrrj"]
 [ext_resource type="Texture2D" uid="uid://def1fhisuegrr" path="res://texture/button_pressed.jpg" id="3_23mle"]
-[ext_resource type="Script" path="res://scripts/h_slider.gd" id="4_o7tu5"]
+[ext_resource type="PackedScene" uid="uid://lhgkadjaplcf" path="res://scenes/metronome.tscn" id="5_8ahy3"]
 [ext_resource type="Texture2D" uid="uid://ddyup8d3jy758" path="res://texture/Screenshot 2024-11-02 173809.png" id="5_kq2bn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7a8xa"]
@@ -94,34 +94,12 @@ scale = Vector2(0.348, 0.348)
 texture_normal = ExtResource("2_4qrrj")
 texture_pressed = ExtResource("3_23mle")
 
-[node name="CheckButton" type="CheckButton" parent="."]
-offset_left = 21.0
-offset_top = 701.0
-offset_right = 161.0
-offset_bottom = 732.0
-text = "Metronome"
-
-[node name="HSlider" type="HSlider" parent="."]
-offset_left = 26.0
-offset_top = 732.0
-offset_right = 353.0
-offset_bottom = 771.0
-min_value = 70.0
-max_value = 200.0
-value = 90.0
-script = ExtResource("4_o7tu5")
-
-[node name="Label" type="Label" parent="HSlider"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 31.0
-offset_right = 100.0
-offset_bottom = 77.0
-text = "BPM : 90"
-
 [node name="Button" type="Button" parent="."]
 offset_left = 446.0
 offset_top = 698.0
 offset_right = 547.0
 offset_bottom = 766.0
 icon = ExtResource("5_kq2bn")
+
+[node name="metronome" parent="." instance=ExtResource("5_8ahy3")]
+position = Vector2(0, 700)

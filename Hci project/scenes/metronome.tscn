@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/metronome.gd" id="1_da4oh"]
 [ext_resource type="Script" path="res://scripts/h_slider.gd" id="2_iyw8x"]
-[ext_resource type="AudioStream" uid="uid://xs45ru03w8ld" path="res://souds/snd_splat_ch1.wav" id="3_1rlvp"]
-[ext_resource type="AudioStream" uid="uid://jun6533uxjar" path="res://souds/snd_lancerhonk_ch1.wav" id="4_pfsj0"]
+[ext_resource type="AudioStream" uid="uid://b2udi3m5qdb0f" path="res://souds/carpet.wav" id="3_sxppf"]
+[ext_resource type="AudioStream" uid="uid://4j727pihlt46" path="res://souds/check it out.wav" id="3_uidu5"]
 
 [node name="metronome" type="Node2D"]
 script = ExtResource("1_da4oh")
@@ -34,10 +34,10 @@ text = "BPM : 90"
 [node name="Timer" type="Timer" parent="."]
 
 [node name="sound1" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_1rlvp")
+stream = ExtResource("3_uidu5")
 
 [node name="sound2" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_pfsj0")
+stream = ExtResource("3_sxppf")
 
 [connection signal="toggled" from="toggleMetronome" to="." method="_on_toggle_metronome_toggled"]
 [connection signal="drag_ended" from="bpmSlider" to="." method="_on_h_slider_drag_ended"]
