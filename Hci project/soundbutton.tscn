@@ -10,6 +10,19 @@ texture_pressed = ExtResource("2_5panj")
 script = ExtResource("1_o6xhv")
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 2
+size = Vector2i(276, 600)
+visible = true
+ok_button_text = "Open"
+file_mode = 0
+root_subfolder = "souds"
+filters = PackedStringArray("*.wav")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="released" from="." to="." method="_on_released"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
