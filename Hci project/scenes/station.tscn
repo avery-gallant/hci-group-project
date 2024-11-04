@@ -1,15 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://4sdb1k7368h3"]
+[gd_scene load_steps=10 format=3 uid="uid://4sdb1k7368h3"]
 
+[ext_resource type="Script" path="res://scenes/station.gd" id="1_lk86c"]
 [ext_resource type="Texture2D" uid="uid://c3pochkd1tv15" path="res://texture/background.png" id="1_ya6gq"]
 [ext_resource type="Texture2D" uid="uid://ufpyrsd51ibc" path="res://texture/button_still.jpg" id="2_4qrrj"]
 [ext_resource type="Texture2D" uid="uid://def1fhisuegrr" path="res://texture/button_pressed.jpg" id="3_23mle"]
 [ext_resource type="PackedScene" uid="uid://lhgkadjaplcf" path="res://scenes/metronome.tscn" id="5_8ahy3"]
 [ext_resource type="Texture2D" uid="uid://ddyup8d3jy758" path="res://texture/Screenshot 2024-11-02 173809.png" id="5_kq2bn"]
+[ext_resource type="Texture2D" uid="uid://bfjpftqiqstwm" path="res://texture/record.png" id="7_ulrcw"]
+[ext_resource type="Texture2D" uid="uid://pl1856kql35f" path="res://texture/play_btn.png" id="8_qru7o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7a8xa"]
 size = Vector2(1000, 800)
 
 [node name="Station" type="Node2D"]
+script = ExtResource("1_lk86c")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -103,3 +107,22 @@ icon = ExtResource("5_kq2bn")
 
 [node name="metronome" parent="." instance=ExtResource("5_8ahy3")]
 position = Vector2(0, 700)
+
+[node name="RecordButton" type="Button" parent="."]
+offset_left = 775.0
+offset_top = 699.0
+offset_right = 841.0
+offset_bottom = 762.0
+icon = ExtResource("7_ulrcw")
+
+[node name="PlayButton" type="Button" parent="."]
+offset_left = 868.0
+offset_top = 684.0
+offset_right = 970.0
+offset_bottom = 782.0
+icon = ExtResource("8_qru7o")
+
+[connection signal="curBeat" from="metronome" to="." method="_on_metronome_cur_beat"]
+[connection signal="off" from="metronome" to="." method="_on_metronome_off"]
+[connection signal="on" from="metronome" to="." method="_on_metronome_on"]
+[connection signal="pressed" from="RecordButton" to="." method="_on_record_button_pressed"]
