@@ -77,6 +77,8 @@ offset_bottom = 766.0
 icon = ExtResource("5_kq2bn")
 
 [node name="metronome" parent="." instance=ExtResource("5_8ahy3")]
+z_index = 1
 position = Vector2(0, 700)
-shapeOffsetX = 100
+timeSig = 1
+shapeOffsetX = 350
 shapeScale = 40

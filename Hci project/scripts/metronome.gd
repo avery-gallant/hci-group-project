@@ -7,18 +7,27 @@ extends Node2D
 @export var shapeScale : int
 var beat : int
 var shapePts : PackedVector2Array = []
+var shape
+var beatPt : Vector2
 func _ready():
 	beat = -1
 	bpm = $bpmSlider.value
 	$Timer.wait_time = 60/bpm
 	$bpmSlider/Label.text = str(bpm)
+	shape = Line2D.new()
+	shape.z_index=z_index-2
+	shape.set_joint_mode(shape.LINE_JOINT_ROUND)
+	add_child(shape)
 	
+	shape.closed = true
 	for i in timeSig:
-		var t = i*(2*PI/timeSig)
+		var t = (timeSig-(i+1))*(2*PI/timeSig)
 		shapePts.append(Vector2(shapeScale*sin(t)+shapeOffsetX, shapeScale*cos(t)+shapeOffsetY))
-
+		shape.add_point(Vector2(shapeScale*sin(t)+shapeOffsetX, shapeScale*cos(t)+shapeOffsetY))
+		
 func _process(delta):
-	pass
+	beatPt = shapePts[beat].lerp(shapePts[(1 + beat)%timeSig], (($Timer.wait_time-$Timer.time_left)/$Timer.wait_time)**8)
+	queue_redraw()
 
 func _on_timer_timeout():
 	beat = (1 + beat)%timeSig
@@ -40,6 +49,5 @@ func _on_toggle_metronome_toggled(toggled_on):
 		
 func _draw() -> void:
 	var godot_blue : Color = Color("478cbf")
-	# We pass the PackedVector2Array to draw the shape.
-	draw_polygon(shapePts, [ godot_blue ])
+	draw_circle(beatPt,6,godot_blue)
 		
