@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://4sdb1k7368h3"]
+
+[ext_resource type="Texture2D" uid="uid://c3pochkd1tv15" path="res://texture/background.png" id="1_ya6gq"]
+[ext_resource type="PackedScene" uid="uid://bkqm36ehhqyxk" path="res://scenes/soundbutton.tscn" id="2_y2sr4"]
+[ext_resource type="PackedScene" uid="uid://lhgkadjaplcf" path="res://scenes/metronome.tscn" id="5_8ahy3"]
+[ext_resource type="Texture2D" uid="uid://ddyup8d3jy758" path="res://texture/Screenshot 2024-11-02 173809.png" id="5_kq2bn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7a8xa"]
+size = Vector2(1000, 800)
+
+[node name="Station" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(500, 400)
+shape = SubResource("RectangleShape2D_7a8xa")
+
+[node name="Background" type="Sprite2D" parent="Area2D"]
+position = Vector2(499, 402.5)
+scale = Vector2(0.523958, 0.741667)
+texture = ExtResource("1_ya6gq")
+
+[node name="SoundButton" parent="." instance=ExtResource("2_y2sr4")]
+position = Vector2(103, 77)
+scale = Vector2(0.348, 0.348)
+
+[node name="SoundButton2" parent="." instance=ExtResource("2_y2sr4")]
+position = Vector2(309, 77)
+scale = Vector2(0.348, 0.348)
+
+[node name="SoundButton3" parent="." instance=ExtResource("2_y2sr4")]
+position = Vector2(515, 77)
+scale = Vector2(0.348, 0.348)
+
+[node name="SoundButton4" parent="." instance=ExtResource("2_y2sr4")]
+position = Vector2(721, 77)
+scale = Vector2(0.348, 0.348)
+
+[node name="SoundButton5" parent="." instance=ExtResource("2_y2sr4")]
+position = Vector2(103, 283)
+scale = Vector2(0.348, 0.348)
+
+[node name="SoundButton6" parent="." instance=ExtResource("2_y2sr4")]
+position = Vector2(309, 283)
+scale = Vector2(0.348, 0.348)
+
+[node name="SoundButton7" parent="." instance=ExtResource("2_y2sr4")]
+position = Vector2(515, 283)
+scale = Vector2(0.348, 0.348)
+
+[node name="SoundButton8" parent="." instance=ExtResource("2_y2sr4")]
+position = Vector2(721, 283)
+scale = Vector2(0.348, 0.348)
+
+[node name="SoundButton9" parent="." instance=ExtResource("2_y2sr4")]
+position = Vector2(103, 490)
+scale = Vector2(0.348, 0.348)
+
+[node name="SoundButton10" parent="." instance=ExtResource("2_y2sr4")]
+position = Vector2(309, 490)
+scale = Vector2(0.348, 0.348)
+
+[node name="SoundButton11" parent="." instance=ExtResource("2_y2sr4")]
+position = Vector2(515, 490)
+scale = Vector2(0.348, 0.348)
+
+[node name="SoundButton12" parent="." instance=ExtResource("2_y2sr4")]
+position = Vector2(721, 490)
+scale = Vector2(0.348, 0.348)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 446.0
+offset_top = 698.0
+offset_right = 547.0
+offset_bottom = 766.0
+icon = ExtResource("5_kq2bn")
+
+[node name="metronome" parent="." instance=ExtResource("5_8ahy3")]
+position = Vector2(0, 700)
+timeSig = 5

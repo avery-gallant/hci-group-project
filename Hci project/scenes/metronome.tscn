@@ -1,9 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://lhgkadjaplcf"]
+[gd_scene load_steps=13 format=3 uid="uid://lhgkadjaplcf"]
 
 [ext_resource type="Script" path="res://scripts/metronome.gd" id="1_da4oh"]
 [ext_resource type="Script" path="res://scripts/h_slider.gd" id="2_iyw8x"]
 [ext_resource type="AudioStream" uid="uid://b2udi3m5qdb0f" path="res://souds/carpet.wav" id="3_sxppf"]
 [ext_resource type="AudioStream" uid="uid://4j727pihlt46" path="res://souds/check it out.wav" id="3_uidu5"]
+
+[sub_resource type="Gradient" id="Gradient_oh43f"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d6hfk"]
+gradient = SubResource("Gradient_oh43f")
+height = 32
+
+[sub_resource type="Gradient" id="Gradient_drnj7"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xsgat"]
+gradient = SubResource("Gradient_drnj7")
+height = 32
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_vslvn"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c5liu"]
+gradient = SubResource("Gradient_vslvn")
+height = 32
+
+[sub_resource type="Gradient" id="Gradient_41co0"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sxko7"]
+gradient = SubResource("Gradient_41co0")
+height = 32
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
 
 [node name="metronome" type="Node2D"]
 script = ExtResource("1_da4oh")
@@ -41,7 +69,19 @@ stream = ExtResource("3_uidu5")
 [node name="sound2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_sxppf")
 
+[node name="TSUP" type="TouchScreenButton" parent="."]
+position = Vector2(450, 10)
+texture_normal = SubResource("GradientTexture2D_d6hfk")
+texture_pressed = SubResource("GradientTexture2D_xsgat")
+
+[node name="TSDN" type="TouchScreenButton" parent="."]
+position = Vector2(450, 50)
+texture_normal = SubResource("GradientTexture2D_c5liu")
+texture_pressed = SubResource("GradientTexture2D_sxko7")
+
 [connection signal="toggled" from="toggleMetronome" to="." method="_on_toggle_metronome_toggled"]
 [connection signal="drag_ended" from="bpmSlider" to="." method="_on_h_slider_drag_ended"]
 [connection signal="value_changed" from="bpmSlider" to="." method="_on_bpm_slider_value_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="TSUP" to="." method="_on_tsup_pressed"]
+[connection signal="pressed" from="TSDN" to="." method="_on_tsdn_pressed"]
