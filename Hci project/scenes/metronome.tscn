@@ -1,37 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://lhgkadjaplcf"]
+[gd_scene load_steps=9 format=3 uid="uid://lhgkadjaplcf"]
 
 [ext_resource type="Script" path="res://scripts/metronome.gd" id="1_da4oh"]
 [ext_resource type="Script" path="res://scripts/h_slider.gd" id="2_iyw8x"]
 [ext_resource type="AudioStream" uid="uid://b2udi3m5qdb0f" path="res://souds/carpet.wav" id="3_sxppf"]
 [ext_resource type="AudioStream" uid="uid://4j727pihlt46" path="res://souds/check it out.wav" id="3_uidu5"]
-
-[sub_resource type="Gradient" id="Gradient_oh43f"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_d6hfk"]
-gradient = SubResource("Gradient_oh43f")
-height = 32
-
-[sub_resource type="Gradient" id="Gradient_drnj7"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_xsgat"]
-gradient = SubResource("Gradient_drnj7")
-height = 32
-fill_from = Vector2(1, 0)
-fill_to = Vector2(0, 0)
-
-[sub_resource type="Gradient" id="Gradient_vslvn"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_c5liu"]
-gradient = SubResource("Gradient_vslvn")
-height = 32
-
-[sub_resource type="Gradient" id="Gradient_41co0"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_sxko7"]
-gradient = SubResource("Gradient_41co0")
-height = 32
-fill_from = Vector2(1, 0)
-fill_to = Vector2(0, 0)
+[ext_resource type="Texture2D" uid="uid://wg3fovjjbr4k" path="res://texture/upPlaceholder.png" id="5_vtqou"]
+[ext_resource type="Texture2D" uid="uid://cc80be2hjo4kr" path="res://texture/upInvPlaceholder.png" id="6_hp25g"]
+[ext_resource type="Texture2D" uid="uid://cyaqwdc8j7qdy" path="res://texture/downPlaceholder.png" id="7_bm23j"]
+[ext_resource type="Texture2D" uid="uid://bf4ygs3o8m5nd" path="res://texture/downInvPlaceholder.png" id="8_d1fux"]
 
 [node name="metronome" type="Node2D"]
 script = ExtResource("1_da4oh")
@@ -70,14 +46,14 @@ stream = ExtResource("3_uidu5")
 stream = ExtResource("3_sxppf")
 
 [node name="TSUP" type="TouchScreenButton" parent="."]
-position = Vector2(450, 10)
-texture_normal = SubResource("GradientTexture2D_d6hfk")
-texture_pressed = SubResource("GradientTexture2D_xsgat")
+position = Vector2(650, 33)
+texture_normal = ExtResource("5_vtqou")
+texture_pressed = ExtResource("6_hp25g")
 
 [node name="TSDN" type="TouchScreenButton" parent="."]
-position = Vector2(450, 50)
-texture_normal = SubResource("GradientTexture2D_c5liu")
-texture_pressed = SubResource("GradientTexture2D_sxko7")
+position = Vector2(650, 84)
+texture_normal = ExtResource("7_bm23j")
+texture_pressed = ExtResource("8_d1fux")
 
 [connection signal="toggled" from="toggleMetronome" to="." method="_on_toggle_metronome_toggled"]
 [connection signal="drag_ended" from="bpmSlider" to="." method="_on_h_slider_drag_ended"]
