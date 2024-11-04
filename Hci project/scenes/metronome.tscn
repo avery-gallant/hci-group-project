@@ -12,12 +12,14 @@ timeSig = 4
 [node name="toggleMetronome" type="CheckButton" parent="."]
 offset_right = 140.0
 offset_bottom = 31.0
+scale = Vector2(2, 2)
 text = "Metronome"
 
 [node name="bpmSlider" type="HSlider" parent="."]
-offset_top = 35.0
-offset_right = 327.0
-offset_bottom = 74.0
+offset_top = 60.0
+offset_right = 240.0
+offset_bottom = 76.0
+scale = Vector2(2, 2)
 min_value = 10.0
 max_value = 300.0
 value = 90.0

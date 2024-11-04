@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://clmhkpqyxlcvk"
+path="res://.godot/imported/08 Swiny House 100 BPM IZM(1).wav-cc95fa8fc6728e5ca4e89d032e54d328.sample"
+
+[deps]
+
+source_file="res://souds/08 Swiny House 100 BPM IZM(1).wav"
+dest_files=["res://.godot/imported/08 Swiny House 100 BPM IZM(1).wav-cc95fa8fc6728e5ca4e89d032e54d328.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
