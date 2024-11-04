@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bkqm36ehhqyxk"]
 
-[ext_resource type="Texture2D" uid="uid://ufpyrsd51ibc" path="res://texture/button_still.jpg" id="1_a55gj"]
+[ext_resource type="Texture2D" uid="uid://ufpyrsd51ibc" path="res://texture/button.jpg" id="1_a55gj"]
 [ext_resource type="Script" path="res://scripts/TouchScreenButton.gd" id="1_ofvg8"]
 [ext_resource type="Texture2D" uid="uid://def1fhisuegrr" path="res://texture/button_pressed.jpg" id="2_5panj"]
 
