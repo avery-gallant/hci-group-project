@@ -12,7 +12,7 @@ var currentBeat
 func _ready() -> void:
 	isTracking = false
 	numLoops=0
-	loops == [numLoops][32][12] #the loop, frames in loop, which pads play in the frame
+	#loops == [numLoops][32][12] #the loop, frames in loop, which pads play in the frame
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
