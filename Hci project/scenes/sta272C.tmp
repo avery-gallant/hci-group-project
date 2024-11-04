@@ -78,5 +78,4 @@ icon = ExtResource("5_kq2bn")
 
 [node name="metronome" parent="." instance=ExtResource("5_8ahy3")]
 position = Vector2(0, 700)
-shapeOffsetX = 100
-shapeScale = 40
+timeSig = 5
