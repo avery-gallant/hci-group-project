@@ -38,7 +38,7 @@ func _on_released():
 
 func _on_timer_timeout():
 	visible=false
-	fd_get.visible=true
+	$soundLoader.visible=true
 	visible=true
 
 func _on_file_dialog_file_selected(path):
