@@ -23,4 +23,5 @@ text = "(0, 0)"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bigButton"]
 shape = SubResource("CircleShape2D_nx7w1")
 
+[connection signal="input_event" from="bigButton" to="." method="_on_big_button_input_event"]
 [connection signal="mouse_exited" from="bigButton" to="." method="onBigRelease"]

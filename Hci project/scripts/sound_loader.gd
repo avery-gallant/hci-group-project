@@ -64,7 +64,13 @@ func placeOnCircle(radius : float, theta: float, i: int):
 	$buttons.get_child(i).position.y = radius*sin(theta)
 	
 func onReleased():
-	print("released")
+	pass
+	#print("released")
 
 func onBigRelease():
 	visible = false
+
+
+func _on_big_button_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	print(event.as_text())
+	if(event is InputEventScreenTouch): visible = false
