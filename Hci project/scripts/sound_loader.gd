@@ -14,6 +14,7 @@ var xCoord = 0
 var yCoord = 0
 
 func _ready():
+	$bigButton.shape.radius = 3*ringRadius
 	visible = false
 	scanFile()
 	placeButtons()
@@ -64,3 +65,6 @@ func placeOnCircle(radius : float, theta: float, i: int):
 	
 func onReleased():
 	print("released")
+
+func onBigRelease():
+	visible = false
