@@ -22,7 +22,12 @@ file_mode = 0
 root_subfolder = "souds"
 filters = PackedStringArray("*.wav")
 
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.047
+one_shot = true
+
 [connection signal="pressed" from="." to="." method="_on_pressed"]
 [connection signal="released" from="." to="." method="_on_released"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

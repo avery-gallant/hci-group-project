@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://4sdb1k7368h3"]
+[gd_scene load_steps=11 format=3 uid="uid://4sdb1k7368h3"]
 
+[ext_resource type="Script" path="res://scenes/station.gd" id="1_87bjf"]
 [ext_resource type="Texture2D" uid="uid://c3pochkd1tv15" path="res://texture/background.png" id="1_ya6gq"]
 [ext_resource type="Script" path="res://scenes/grid_1.gd" id="2_hsirv"]
 [ext_resource type="PackedScene" uid="uid://bkqm36ehhqyxk" path="res://scenes/soundbutton.tscn" id="2_y2sr4"]
@@ -8,9 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://ddyup8d3jy758" path="res://texture/Screenshot 2024-11-02 173809.png" id="5_kq2bn"]
 [ext_resource type="Texture2D" uid="uid://cdgcppj157fxi" path="res://texture/recorodbutton.png" id="7_kwopj"]
 [ext_resource type="Texture2D" uid="uid://bei7c0xt3niuq" path="res://texture/pausebutton.png" id="8_i3kg2"]
-[ext_resource type="Texture2D" uid="uid://bm6a48uv0r3tc" path="res://texture/playbutton.png" id="9_gleya"]
+[ext_resource type="Script" path="res://scenes/node_2d.gd" id="10_ex8ua"]
 
 [node name="Station" type="Node2D"]
+script = ExtResource("1_87bjf")
 
 [node name="background" type="Sprite2D" parent="."]
 z_as_relative = false
@@ -27,39 +29,51 @@ dimensions = Vector2(3, 4)
 
 [node name="SoundButton" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
 z_index = 1
+id = 1
 
 [node name="SoundButton2" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
 z_index = 1
+id = 2
 
 [node name="SoundButton3" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
 z_index = 1
+id = 3
 
 [node name="SoundButton4" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
 z_index = 1
+id = 4
 
 [node name="SoundButton5" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
 z_index = 1
+id = 5
 
 [node name="SoundButton6" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
 z_index = 1
+id = 6
 
 [node name="SoundButton7" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
 z_index = 1
+id = 7
 
 [node name="SoundButton8" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
 z_index = 1
+id = 8
 
 [node name="SoundButton9" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
 z_index = 1
+id = 9
 
 [node name="SoundButton10" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
 z_index = 1
+id = 10
 
 [node name="SoundButton11" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
 z_index = 1
+id = 11
 
 [node name="SoundButton12" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
 z_index = 1
+id = 12
 
 [node name="grid2" type="Node2D" parent="soundButtons"]
 script = ExtResource("4_6etgw")
@@ -133,9 +147,11 @@ offset_right = 1679.0
 offset_bottom = 1042.0
 icon = ExtResource("8_i3kg2")
 
-[node name="PauseButton" type="Button" parent="."]
-offset_left = 1298.0
-offset_top = 854.0
-offset_right = 1486.0
-offset_bottom = 1042.0
-icon = ExtResource("9_gleya")
+[node name="tl" type="Node2D" parent="."]
+script = ExtResource("10_ex8ua")
+tlX = 400
+tlY = 400
+len = 800
+
+[connection signal="pressed" from="RecordButton" to="." method="_on_record_button_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

@@ -5,15 +5,19 @@ extends Node2D
 @export var shapeOffsetX : int
 @export var shapeOffsetY : int
 @export var shapeScale : int
+
 var beat : int
 var shapePts : PackedVector2Array = []
 var shape
 var innerShape
 var beatPt : Vector2
+var noteCount=0
+var on = false
+
 func _ready():
 	beat = -1
 	bpm = $bpmSlider.value
-	$Timer.wait_time = 60/bpm
+	$Timer.wait_time=(1/(bpm/60))/8
 	$bpmSlider/Label.text = str(bpm)
 	
 	shape = Line2D.new()
@@ -39,39 +43,40 @@ func _ready():
 		innerShape.add_point(pt)
 
 func _process(delta):
-	beatPt = shapePts[beat].lerp(shapePts[(1 + beat)%timeSig], (($Timer.wait_time-$Timer.time_left)/$Timer.wait_time)**8)
+	beatPt = shapePts[beat].lerp(shapePts[(1 + beat)%timeSig], ((($Timer.wait_time*noteCount)+$Timer.wait_time-$Timer.time_left)/($Timer.wait_time*8))**8)
 	queue_redraw()
 
 func _on_timer_timeout():
-	beat = (1 + beat)%timeSig
-	match beat:
-		0: $sound1.play()
-		_: $sound2.play()
-
-func _on_bpm_slider_value_changed(value):
-	bpm = value
-	$Timer.wait_time = 60/bpm
+	
+	noteCount+=1
+	if (noteCount==8):
+		noteCount=0
+		beat = (1 + beat)%timeSig
+		if (on):
+			match beat:
+				0: $sound1.play()
+				_: $sound2.play()
 
 func _on_toggle_metronome_toggled(toggled_on):
-	if(toggled_on): 
-		$sound1.play()
-		$Timer.start()
-		beat = 0
-	else:
-		$Timer.stop()
+	on=toggled_on
 
 func _draw() -> void:
 	var godot_blue : Color = Color("478cbf")
 	draw_circle(shapePts[0],3,Color("ffffff"))
-	draw_circle(beatPt,5,godot_blue)
+	if (on):
+		draw_circle(beatPt,5,godot_blue)
 
 func _on_tsup_pressed() -> void:
-	timeSig+=1
-	setPts()
+	if (timeSig<12):
+		timeSig+=1
+		setPts()
 
 func _on_tsdn_pressed() -> void:
-	timeSig-=1
-	setPts()
+	if timeSig>1:
+		timeSig-=1
+		if (beat>=timeSig):
+			beat=timeSig-1
+		setPts()
 
 func setPts():
 	shapePts.clear()
@@ -83,3 +88,7 @@ func setPts():
 		shapePts.append(pt)
 		shape.add_point(pt)
 		innerShape.add_point(pt)
+
+
+func _on_bpm_slider_value_changed(value: float) -> void:
+	$Timer.wait_time=(1/(value/60))/8

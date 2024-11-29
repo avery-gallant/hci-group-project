@@ -38,6 +38,7 @@ offset_bottom = 77.0
 text = "BPM : 90"
 
 [node name="Timer" type="Timer" parent="."]
+autostart = true
 
 [node name="sound1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_0gny5")
