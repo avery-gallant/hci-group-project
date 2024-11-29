@@ -33,3 +33,4 @@ spacing = 6.0
 [connection signal="released" from="." to="." method="_on_released"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="loadSound" from="soundLoader" to="." method="_on_sound_loader_load_sound"]

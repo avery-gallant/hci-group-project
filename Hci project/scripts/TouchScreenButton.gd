@@ -49,3 +49,10 @@ func _on_file_dialog_file_selected(path):
 	music.pitch_scale = 1
 	texture_normal = full_depressed
 	texture_pressed = full_pressed
+
+func _on_sound_loader_load_sound(file) -> void:
+	music.set_stream(audio_loader.loadfile(file))
+	music.volume_db = 1
+	music.pitch_scale = 1
+	texture_normal = full_depressed
+	texture_pressed = full_pressed
