@@ -33,7 +33,7 @@ func scanFile():
 		var text = Label.new()
 		text.text = button.name
 		button.add_child(text)
-		button.mouse_exited.connect(onReleased)
+		button.mouse_exited.connect(onReleased.bind(button.name))
 		$buttons.add_child(button)
 		file = dir.get_next()
 		file = dir.get_next()
@@ -63,14 +63,14 @@ func placeOnCircle(radius : float, theta: float, i: int):
 	$buttons.get_child(i).position.x = radius*cos(theta)
 	$buttons.get_child(i).position.y = radius*sin(theta)
 	
-func onReleased():
-	pass
-	#print("released")
+func onReleased(name : String):
+	#await _on_big_button_input_event($bigButton, InputEvent, 0)
+	if(!visible): print(name)
 
 func onBigRelease():
 	visible = false
 
 
 func _on_big_button_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	print(event.as_text())
-	if(event is InputEventScreenTouch): visible = false
+	if(event is InputEventScreenTouch): 
+		visible = false

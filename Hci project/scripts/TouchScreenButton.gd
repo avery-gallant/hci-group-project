@@ -17,7 +17,7 @@ var empty_pressed = ImageTexture.create_from_image(c);
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(empty_depressed)
+	#print(empty_depressed)
 	texture_normal = empty_depressed
 	texture_pressed = empty_pressed
 	fd_get.visible=false
