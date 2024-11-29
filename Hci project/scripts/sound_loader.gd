@@ -14,7 +14,7 @@ var xCoord = 0
 var yCoord = 0
 
 func _ready():
-	$bigButton.shape.radius = 3*ringRadius
+	$bigButton/CollisionShape2D.shape.radius = 3*ringRadius
 	visible = false
 	scanFile()
 	placeButtons()

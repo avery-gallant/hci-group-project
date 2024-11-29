@@ -35,6 +35,7 @@ func _on_pressed():
 
 func _on_released():
 	$Timer.stop()
+	$soundLoader.visible = false
 
 func _on_timer_timeout():
 	visible=false
