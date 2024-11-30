@@ -55,6 +55,7 @@ func _on_timer_timeout() -> void:
 	noteCount+=1
 	if (noteCount>=8*$metronome.timeSig):
 		noteCount=0
+	$tl.updateBeat(noteCount)
 	if(timeArr.has(noteCount)&&play):
 		for item in timeArr[noteCount]:
 			buttonArr[item-1].playNote()
