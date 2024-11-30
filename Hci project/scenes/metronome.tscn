@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://lhgkadjaplcf"]
+[gd_scene load_steps=12 format=3 uid="uid://lhgkadjaplcf"]
 
 [ext_resource type="Script" path="res://scripts/metronome.gd" id="1_da4oh"]
 [ext_resource type="Texture2D" uid="uid://d0520se1lyl8n" path="res://texture/metronome_grabber.png" id="2_cwptv"]
@@ -11,34 +11,56 @@
 [ext_resource type="Texture2D" uid="uid://cyaqwdc8j7qdy" path="res://texture/downPlaceholder.png" id="7_bm23j"]
 [ext_resource type="Texture2D" uid="uid://bf4ygs3o8m5nd" path="res://texture/downInvPlaceholder.png" id="8_d1fux"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5f4i2"]
+bg_color = Color(0.617014, 0.624845, 0.259357, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_detail = 12
+
 [node name="metronome" type="Node2D"]
 script = ExtResource("1_da4oh")
 timeSig = 4
+shapeOffsetX = 700
+shapeOffsetY = 700
 
 [node name="toggleMetronome" type="CheckButton" parent="."]
-offset_right = 140.0
-offset_bottom = 31.0
+offset_left = -140.0
+offset_top = 600.0
+offset_bottom = 631.0
 scale = Vector2(2, 2)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Metronome"
 
 [node name="bpmSlider" type="HSlider" parent="."]
-offset_top = 60.0
-offset_right = 240.0
-offset_bottom = 76.0
+offset_left = -25.0
+offset_top = 532.0
+offset_right = 507.0
+offset_bottom = 582.0
 rotation = -1.5708
 theme_override_icons/grabber = ExtResource("2_cwptv")
 theme_override_icons/grabber_highlight = ExtResource("3_rrwut")
-min_value = 10.0
-max_value = 300.0
+theme_override_styles/slider = SubResource("StyleBoxFlat_5f4i2")
+min_value = 40.0
+max_value = 218.0
 value = 90.0
 script = ExtResource("2_iyw8x")
 
 [node name="Label" type="Label" parent="bpmSlider"]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 31.0
-offset_right = 100.0
-offset_bottom = 77.0
+offset_top = -23.0
+offset_right = 95.0
+offset_bottom = 23.0
+rotation = 1.5708
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 23
 text = "BPM : 90"
 
 [node name="Timer" type="Timer" parent="."]
@@ -52,12 +74,12 @@ stream = ExtResource("4_vbxja")
 volume_db = 19.857
 
 [node name="TSUP" type="TouchScreenButton" parent="."]
-position = Vector2(650, 33)
+position = Vector2(70, 700)
 texture_normal = ExtResource("5_vtqou")
 texture_pressed = ExtResource("6_hp25g")
 
 [node name="TSDN" type="TouchScreenButton" parent="."]
-position = Vector2(650, 84)
+position = Vector2(70, 750)
 texture_normal = ExtResource("7_bm23j")
 texture_pressed = ExtResource("8_d1fux")
 

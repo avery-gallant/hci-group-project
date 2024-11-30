@@ -14,6 +14,8 @@ var full_pressed = ImageTexture.create_from_image(b);
 var empty_depressed = ImageTexture.create_from_image(d); 
 var empty_pressed = ImageTexture.create_from_image(c);
 
+@export var colour: Color
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#print(empty_depressed)
