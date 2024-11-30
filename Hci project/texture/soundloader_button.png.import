@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yrk670qlftop"
-path="res://.godot/imported/circle.png-ed3d8709d3abfe6878a60b920bde1441.ctex"
+uid="uid://cg7jxvk0vt76t"
+path="res://.godot/imported/soundloader_button.png-566911f01d0641d11109859110ac776f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/circle.png"
-dest_files=["res://.godot/imported/circle.png-ed3d8709d3abfe6878a60b920bde1441.ctex"]
+source_file="res://texture/soundloader_button.png"
+dest_files=["res://.godot/imported/soundloader_button.png-566911f01d0641d11109859110ac776f.ctex"]
 
 [params]
 

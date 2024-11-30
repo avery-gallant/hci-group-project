@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gxcs8jdhln2f"
-path="res://.godot/imported/badass_grimreaper_by_bassemobil_d8ls0yb-fullview.jpg-95720b66efa10ae4bcfb29dfff7aafa7.ctex"
+uid="uid://dn34q4i03pwe2"
+path="res://.godot/imported/metronome_slider.png-866f2ad43164f286eb947920392edebb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/badass_grimreaper_by_bassemobil_d8ls0yb-fullview.jpg"
-dest_files=["res://.godot/imported/badass_grimreaper_by_bassemobil_d8ls0yb-fullview.jpg-95720b66efa10ae4bcfb29dfff7aafa7.ctex"]
+source_file="res://texture/metronome_slider.png"
+dest_files=["res://.godot/imported/metronome_slider.png-866f2ad43164f286eb947920392edebb.ctex"]
 
 [params]
 

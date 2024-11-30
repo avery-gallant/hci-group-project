@@ -4,7 +4,7 @@ var dir
 @export var path : String
 
 @export var ringRadius : float
-var buttonRadius : float
+@export var buttonRadius : int
 @export var maxRow : int
 @export var spacing : float
 
@@ -19,7 +19,7 @@ var audioLoader
 signal loadSound
 
 func _ready():
-	$bigButton/CollisionShape2D.shape.radius = 3*ringRadius
+	$bigButton/CollisionShape2D.shape.radius = 2.5*ringRadius
 	visible = false
 	scanFile()
 	placeButtons()
@@ -27,6 +27,8 @@ func _ready():
 	music = AudioStreamPlayer.new()
 	add_child(music)
 	audioLoader = AudioLoader.new()
+	
+	$Label.set("theme_override_colors/font_color", Color(0, 0, 0, 1))
 	
 func scanFile():
 	dir = DirAccess.open(path)
@@ -44,10 +46,19 @@ func scanFile():
 		var text = Label.new()
 		text.name = "text"
 		text.text = button.name
+		
+		text.add_theme_color_override("font_outline_color", Color(0, 0, 0, 1))
+		text.add_theme_constant_override("outline_size", 3)
+		text.set("z_index", 1)
 		button.add_child(text)
 		
 		button.mouse_entered.connect(onEntered.bind(button.name))
 		button.mouse_exited.connect(onReleased.bind(button.name))
+		
+		var texture = load("res://texture/soundloader_button.png"); 
+		var sprite = Sprite2D.new()
+		sprite.texture = texture
+		button.add_child(sprite)
 		
 		$buttons.add_child(button)
 		
@@ -57,7 +68,6 @@ func scanFile():
 
 func placeButtons():
 	numButtons = $buttons.get_child_count()
-	buttonRadius = ringRadius/(4) - spacing
 	var theta = PI/min(numButtons+1, maxRow+1)
 	var i = 0
 	while(theta < PI):

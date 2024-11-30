@@ -1,14 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://4sdb1k7368h3"]
+[gd_scene load_steps=13 format=3 uid="uid://4sdb1k7368h3"]
 
 [ext_resource type="Texture2D" uid="uid://c3pochkd1tv15" path="res://texture/background.png" id="1_ya6gq"]
 [ext_resource type="Script" path="res://scenes/grid_1.gd" id="2_hsirv"]
 [ext_resource type="PackedScene" uid="uid://bkqm36ehhqyxk" path="res://scenes/soundbutton.tscn" id="2_y2sr4"]
-[ext_resource type="Script" path="res://scenes/grid_2.gd" id="4_6etgw"]
 [ext_resource type="PackedScene" uid="uid://lhgkadjaplcf" path="res://scenes/metronome.tscn" id="5_8ahy3"]
 [ext_resource type="Texture2D" uid="uid://ddyup8d3jy758" path="res://texture/Screenshot 2024-11-02 173809.png" id="5_kq2bn"]
-[ext_resource type="Texture2D" uid="uid://cdgcppj157fxi" path="res://texture/recorodbutton.png" id="7_kwopj"]
+[ext_resource type="Texture2D" uid="uid://bivcy723jpnkv" path="res://texture/recordbutton.png" id="6_6g5qj"]
+[ext_resource type="Script" path="res://scenes/playback_buttons.gd" id="6_wah7c"]
 [ext_resource type="Texture2D" uid="uid://bei7c0xt3niuq" path="res://texture/pausebutton.png" id="8_i3kg2"]
+[ext_resource type="Texture2D" uid="uid://cr50lxems8j5g" path="res://texture/playbutton_pressed.png" id="8_t44x8"]
 [ext_resource type="Texture2D" uid="uid://bm6a48uv0r3tc" path="res://texture/playbutton.png" id="9_gleya"]
+[ext_resource type="Texture2D" uid="uid://cbgypx10k5bgh" path="res://texture/recordbutton_pressed.png" id="9_l8jh6"]
+[ext_resource type="Texture2D" uid="uid://c1xyobhmibo5w" path="res://texture/pausebutton_pressed.png" id="12_fkxsy"]
 
 [node name="Station" type="Node2D"]
 
@@ -21,9 +24,9 @@ texture = ExtResource("1_ya6gq")
 
 [node name="grid1" type="Node2D" parent="soundButtons"]
 script = ExtResource("2_hsirv")
-spacing = 15.0
-buttonWidth = 180.0
-dimensions = Vector2(3, 4)
+spacing = 16.0
+buttonWidth = 250.0
+dimensions = Vector2(4, 3)
 
 [node name="SoundButton" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
 z_index = 1
@@ -61,48 +64,6 @@ z_index = 1
 [node name="SoundButton12" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
 z_index = 1
 
-[node name="grid2" type="Node2D" parent="soundButtons"]
-script = ExtResource("4_6etgw")
-spacing = 15.0
-buttonWidth = 180.0
-dimensions = Vector2(3, 4)
-
-[node name="SoundButton" parent="soundButtons/grid2" instance=ExtResource("2_y2sr4")]
-z_index = 1
-
-[node name="SoundButton2" parent="soundButtons/grid2" instance=ExtResource("2_y2sr4")]
-z_index = 1
-
-[node name="SoundButton3" parent="soundButtons/grid2" instance=ExtResource("2_y2sr4")]
-z_index = 1
-
-[node name="SoundButton4" parent="soundButtons/grid2" instance=ExtResource("2_y2sr4")]
-z_index = 1
-
-[node name="SoundButton5" parent="soundButtons/grid2" instance=ExtResource("2_y2sr4")]
-z_index = 1
-
-[node name="SoundButton6" parent="soundButtons/grid2" instance=ExtResource("2_y2sr4")]
-z_index = 1
-
-[node name="SoundButton7" parent="soundButtons/grid2" instance=ExtResource("2_y2sr4")]
-z_index = 1
-
-[node name="SoundButton8" parent="soundButtons/grid2" instance=ExtResource("2_y2sr4")]
-z_index = 1
-
-[node name="SoundButton9" parent="soundButtons/grid2" instance=ExtResource("2_y2sr4")]
-z_index = 1
-
-[node name="SoundButton10" parent="soundButtons/grid2" instance=ExtResource("2_y2sr4")]
-z_index = 1
-
-[node name="SoundButton11" parent="soundButtons/grid2" instance=ExtResource("2_y2sr4")]
-z_index = 1
-
-[node name="SoundButton12" parent="soundButtons/grid2" instance=ExtResource("2_y2sr4")]
-z_index = 1
-
 [node name="sounbank" type="Button" parent="."]
 visible = false
 z_index = 1
@@ -119,23 +80,24 @@ shapeOffsetX = 560
 shapeOffsetY = 75
 shapeScale = 50
 
-[node name="RecordButton" type="Button" parent="."]
-offset_left = 1684.0
-offset_top = 854.0
-offset_right = 1872.0
-offset_bottom = 1042.0
-icon = ExtResource("7_kwopj")
+[node name="playbackButtons" type="Node2D" parent="."]
+position = Vector2(1484, 868)
+script = ExtResource("6_wah7c")
 
-[node name="PlayButton" type="Button" parent="."]
-offset_left = 1491.0
-offset_top = 854.0
-offset_right = 1679.0
-offset_bottom = 1042.0
-icon = ExtResource("8_i3kg2")
+[node name="PlayButton" type="TouchScreenButton" parent="playbackButtons"]
+position = Vector2(244, 0)
+texture_normal = ExtResource("9_gleya")
+texture_pressed = ExtResource("8_t44x8")
 
-[node name="PauseButton" type="Button" parent="."]
-offset_left = 1298.0
-offset_top = 854.0
-offset_right = 1486.0
-offset_bottom = 1042.0
-icon = ExtResource("9_gleya")
+[node name="RecordButton" type="TouchScreenButton" parent="playbackButtons"]
+position = Vector2(84, 0)
+texture_normal = ExtResource("6_6g5qj")
+texture_pressed = ExtResource("9_l8jh6")
+
+[node name="PauseButton" type="TouchScreenButton" parent="playbackButtons"]
+position = Vector2(244, 0)
+texture_normal = ExtResource("8_i3kg2")
+texture_pressed = ExtResource("12_fkxsy")
+
+[connection signal="released" from="playbackButtons/PlayButton" to="playbackButtons" method="_on_play_button_released"]
+[connection signal="released" from="playbackButtons/PauseButton" to="playbackButtons" method="_on_pause_button_released"]
