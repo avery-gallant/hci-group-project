@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://0200lxkam878"]
+
+[ext_resource type="Script" path="res://scripts/sound_loader.gd" id="1_lbqme"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nx7w1"]
+
+[node name="soundLoader" type="Node2D"]
+z_index = 1
+script = ExtResource("1_lbqme")
+path = "res://souds/carpet/"
+ringRadius = 200.0
+maxRow = 6
+
+[node name="buttons" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+pivot_offset = Vector2(20, 11.5)
+text = "(0, 0)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="bigButton" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bigButton"]
+shape = SubResource("CircleShape2D_nx7w1")
+
+[connection signal="input_event" from="bigButton" to="." method="_on_big_button_input_event"]
+[connection signal="mouse_exited" from="bigButton" to="." method="onBigRelease"]

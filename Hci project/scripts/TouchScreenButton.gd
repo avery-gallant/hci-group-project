@@ -20,7 +20,7 @@ var pressedIcon = empty_pressed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	#print(empty_depressed)
 	texture_normal = empty_depressed
 	texture_pressed = empty_pressed
 	fd_get.visible=false
@@ -38,10 +38,11 @@ func _on_pressed():
 
 func _on_released():
 	$Timer.stop()
+	$soundLoader.visible = false
 
 func _on_timer_timeout():
 	visible=false
-	fd_get.visible=true
+	$soundLoader.visible=true
 	visible=true
 
 func _on_file_dialog_file_selected(path):
@@ -58,8 +59,13 @@ func playNote() -> void:
 	music.play()
 	$Timer2.start()
 	texture_normal=pressedIcon
-	
-
 
 func _on_timer_2_timeout() -> void:
 	texture_normal=depressedIcon
+
+func _on_sound_loader_load_sound(file) -> void:
+	music.set_stream(audio_loader.loadfile(file))
+	music.volume_db = 1
+	music.pitch_scale = 1
+	texture_normal = full_depressed
+	texture_pressed = full_pressed
