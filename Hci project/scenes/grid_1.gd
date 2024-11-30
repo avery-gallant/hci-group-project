@@ -4,13 +4,22 @@ extends Node2D
 @export var buttonWidth : float
 @export var dimensions : Vector2
 
-var colours : Array
+var colours : Array = [	
+	Color(1, 0, 0), 
+	Color(0.09411,0.6078,0.8), 
+	Color(0.09411,0.6078,0.8), 
+	Color(0.09411,0.6078,0.8), 
+	Color(0.09411,0.6078,0.8), 
+	Color(0.09411,0.6078,0.8), 
+	Color(0.09411,0.6078,0.8), 
+	Color(0.09411,0.6078,0.8), 
+	Color(0.09411,0.6078,0.8), 
+	Color(0.09411,0.6078,0.8), 
+	Color(0.09411,0.6078,0.8), 
+	Color(0.09411,0.6078,0.8)
+]
 
 func _ready():
-	colours = [Color(255, 0, 0), Color(24,155,204), Color(24,155,204), Color(24,155,204),
-				Color(24,155,204), Color(24,155,204), Color(24,155,204), Color(24,155,204),
-				Color(24,155,204), Color(24,155,204), Color(24,155,204), Color(24,155,204)]
-	
 	var xIndex : int = 0
 	var yIndex : int = 0
 	var i = 0
@@ -18,5 +27,5 @@ func _ready():
 		button.position = Vector2(spacing + xIndex*(buttonWidth+spacing), spacing + yIndex*(buttonWidth+spacing))
 		if((xIndex+1)%int(dimensions.x) == 0): yIndex+=1
 		xIndex = (xIndex+1)%int(dimensions.x)
-		button.colour = colours[i]
+		button.colour = Color(colours[i].r8,colours[i].g8,colours[i].b8)
 		i += 1

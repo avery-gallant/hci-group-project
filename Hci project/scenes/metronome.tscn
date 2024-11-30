@@ -21,8 +21,6 @@ corner_detail = 12
 [node name="metronome" type="Node2D"]
 script = ExtResource("1_da4oh")
 timeSig = 4
-shapeOffsetX = 700
-shapeOffsetY = 700
 
 [node name="toggleMetronome" type="CheckButton" parent="."]
 offset_left = -140.0
@@ -63,6 +61,7 @@ theme_override_font_sizes/font_size = 23
 text = "BPM : 90"
 
 [node name="Timer" type="Timer" parent="."]
+autostart = true
 
 [node name="sound1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_0gny5")

@@ -1,7 +1,7 @@
 extends TouchScreenButton
 var music
 var audio_loader
-
+@export var id:int
 
 var c = Image.load_from_file("res://texture/button_pressed_empty.png"); 
 var d = Image.load_from_file("res://texture/button_empty.png");
@@ -14,6 +14,8 @@ var full_pressed = ImageTexture.create_from_image(b);
 var empty_depressed = ImageTexture.create_from_image(d); 
 var empty_pressed = ImageTexture.create_from_image(c);
 
+var depressedIcon = empty_depressed
+var pressedIcon = empty_pressed
 @export var colour: Color
 
 # Called when the node enters the scene tree for the first time.
@@ -42,9 +44,19 @@ func _on_timer_timeout():
 	$soundLoader.visible=true
 	visible=true
 
+func playNote() -> void:
+	music.play()
+	$Timer2.start()
+	texture_normal=pressedIcon
+
+func _on_timer_2_timeout() -> void:
+	texture_normal=depressedIcon
+
 func _on_sound_loader_load_sound(file) -> void:
 	music.set_stream(audio_loader.loadfile(file))
 	music.volume_db = 1
 	music.pitch_scale = 1
+	depressedIcon = full_depressed
+	pressedIcon = full_pressed
 	texture_normal = full_depressed
 	texture_pressed = full_pressed

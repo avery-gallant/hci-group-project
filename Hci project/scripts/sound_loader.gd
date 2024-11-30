@@ -31,6 +31,10 @@ func _ready():
 	add_child(music)
 	audioLoader = AudioLoader.new()
 	
+	$Label.set("theme_override_colors/font_color", Color(0, 0, 0, 1))
+	
+	colour = get_parent().colour
+	
 func scanFile():
 	dir = DirAccess.open(path)
 	dir.list_dir_begin()
