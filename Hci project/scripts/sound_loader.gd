@@ -4,9 +4,10 @@ var dir
 @export var path : String
 
 @export var ringRadius : float
-var buttonRadius : float
+@export var buttonRadius : int
 @export var maxRow : int
 @export var spacing : float
+@export var colour : Color
 
 var numButtons
 
@@ -19,7 +20,8 @@ var audioLoader
 signal loadSound
 
 func _ready():
-	$bigButton/CollisionShape2D.shape.radius = 3*ringRadius
+	await get_parent().get_parent()._ready()
+	$bigButton/CollisionShape2D.shape.radius = 2.5*ringRadius
 	visible = false
 	scanFile()
 	placeButtons()
@@ -28,9 +30,15 @@ func _ready():
 	add_child(music)
 	audioLoader = AudioLoader.new()
 	
+	$Label.set("theme_override_colors/font_color", Color(0, 0, 0, 1))
+	
+	colour = get_parent().colour
+	print(colour)
+	
 func scanFile():
 	dir = DirAccess.open(path)
 	dir.list_dir_begin()
+	var i = 0
 	var file = dir.get_next()
 	while file != "":
 		var button = Area2D.new()
@@ -44,20 +52,29 @@ func scanFile():
 		var text = Label.new()
 		text.name = "text"
 		text.text = button.name
+		
+		text.add_theme_color_override("font_outline_color", Color(0, 0, 0, 1))
+		text.add_theme_constant_override("outline_size", 3)
+		text.set("z_index", 1)
 		button.add_child(text)
 		
 		button.mouse_entered.connect(onEntered.bind(button.name))
-		button.mouse_exited.connect(onReleased.bind(button.name))
+		button.mouse_exited.connect(onReleased.bind(button.name, i))
+		
+		var texture = load("res://texture/soundloader_button.png"); 
+		var sprite = Sprite2D.new()
+		sprite.texture = texture
+		button.add_child(sprite)
 		
 		$buttons.add_child(button)
 		
 		file = dir.get_next()
 		file = dir.get_next()
+		i += 1
 	dir.list_dir_end()
 
 func placeButtons():
 	numButtons = $buttons.get_child_count()
-	buttonRadius = ringRadius/(4) - spacing
 	var theta = PI/min(numButtons+1, maxRow+1)
 	var i = 0
 	while(theta < PI):
@@ -80,10 +97,12 @@ func placeOnCircle(radius : float, theta: float, i: int):
 	$buttons.get_child(i).position.x = radius*cos(theta)
 	$buttons.get_child(i).position.y = radius*sin(theta)
 	
-func onReleased(name : String):
+func onReleased(name : String, i: int):
 	if(!visible):
 		var file = path + name.replace("_", ".")
 		loadSound.emit(file)
+		get_parent().self_modulate = colour
+		print(i)
 		
 func onEntered(name: String):
 	var file = path + name.replace("_", ".")

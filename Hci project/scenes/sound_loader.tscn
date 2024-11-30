@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://0200lxkam878"]
+[gd_scene load_steps=4 format=3 uid="uid://0200lxkam878"]
 
 [ext_resource type="Script" path="res://scripts/sound_loader.gd" id="1_lbqme"]
+
+[sub_resource type="Theme" id="Theme_gmbwy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nx7w1"]
 
@@ -17,6 +19,7 @@ maxRow = 6
 offset_right = 40.0
 offset_bottom = 23.0
 pivot_offset = Vector2(20, 11.5)
+theme = SubResource("Theme_gmbwy")
 text = "(0, 0)"
 horizontal_alignment = 1
 vertical_alignment = 1
