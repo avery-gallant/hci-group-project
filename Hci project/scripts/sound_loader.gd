@@ -21,6 +21,7 @@ signal loadSound
 
 func _ready():
 	await get_parent().get_parent()._ready()
+	colour = get_parent().colour
 	$bigButton/CollisionShape2D.shape.radius = 2.5*ringRadius
 	visible = false
 	scanFile()
@@ -29,11 +30,6 @@ func _ready():
 	music = AudioStreamPlayer.new()
 	add_child(music)
 	audioLoader = AudioLoader.new()
-	
-	$Label.set("theme_override_colors/font_color", Color(0, 0, 0, 1))
-	
-	colour = get_parent().colour
-	print(colour)
 	
 func scanFile():
 	dir = DirAccess.open(path)
@@ -44,6 +40,11 @@ func scanFile():
 		var button = Area2D.new()
 		button.name = file
 		
+		var bg = Sprite2D.new()
+		bg.scale = Vector2(1, 1)
+		bg.texture = load("res://texture/white_circle.png")
+		button.add_child(bg)
+		
 		var shape = CollisionShape2D.new()
 		shape.name = "shape"
 		shape.shape = CircleShape2D.new()
@@ -53,8 +54,8 @@ func scanFile():
 		text.name = "text"
 		text.text = button.name
 		
-		text.add_theme_color_override("font_outline_color", Color(0, 0, 0, 1))
-		text.add_theme_constant_override("outline_size", 3)
+		#text.add_theme_color_override("font_outline_color", Color(0, 0, 0, 1))
+		#text.add_theme_constant_override("outline_size", 3)
 		text.set("z_index", 1)
 		button.add_child(text)
 		
@@ -64,6 +65,7 @@ func scanFile():
 		var texture = load("res://texture/soundloader_button.png"); 
 		var sprite = Sprite2D.new()
 		sprite.texture = texture
+		sprite.modulate = colour
 		button.add_child(sprite)
 		
 		$buttons.add_child(button)

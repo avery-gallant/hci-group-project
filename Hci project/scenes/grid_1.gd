@@ -19,5 +19,4 @@ func _ready():
 		if((xIndex+1)%int(dimensions.x) == 0): yIndex+=1
 		xIndex = (xIndex+1)%int(dimensions.x)
 		button.colour = colours[i]
-		print(button.colour)
 		i += 1
