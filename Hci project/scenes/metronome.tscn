@@ -22,8 +22,6 @@ corner_detail = 12
 [node name="metronome" type="Node2D"]
 script = ExtResource("1_da4oh")
 timeSig = 4
-shapeOffsetX = 700
-shapeOffsetY = 700
 
 [node name="toggleMetronome" type="CheckButton" parent="."]
 offset_left = -140.0

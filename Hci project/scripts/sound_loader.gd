@@ -33,7 +33,6 @@ func _ready():
 	$Label.set("theme_override_colors/font_color", Color(0, 0, 0, 1))
 	
 	colour = get_parent().colour
-	print(colour)
 	
 func scanFile():
 	dir = DirAccess.open(path)

@@ -6,6 +6,7 @@ extends Node2D
 var tlPos
 var timeSig = 4
 var notes = {}
+var colors
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass#queue_redraw()
@@ -28,11 +29,10 @@ func _draw() -> void:
 	for i in notes.keys():
 		if (i<=timeSig*8):
 			for j in len(notes[i]):
-				var y=tlY+50-float(len(notes[i])-1)*10/2+j*10
+				var y=tlY+50-float(len(notes[i])-1)*13/2+j*13
 				var n = float(i)/(timeSig*8)*len
-				draw_circle(Vector2(tlX+n,y),5,Color("ffffff"))
-	#draw_line(Vector2(tlX,tlY+50),Vector2(tlX+len,tlY+50),Color("000000"),10)
-		
+				var co : Color = colors[notes[i][j]-1]
+				draw_rect(Rect2(Vector2(tlX+n-8,y-3),Vector2(16,6)),Color(co.r,co.g,co.b))
 func updateNotes(notesIn):
 	notes = notesIn
 	queue_redraw()

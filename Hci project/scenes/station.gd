@@ -27,7 +27,7 @@ func _ready() -> void:
 	$soundButtons/grid1/SoundButton10.pressed.connect(notePress.bind(10))
 	$soundButtons/grid1/SoundButton11.pressed.connect(notePress.bind(11))
 	$soundButtons/grid1/SoundButton12.pressed.connect(notePress.bind(12))
-	
+	 
 	bpm=$metronome.bpm
 	$metronome/Timer.timeout.connect(_on_timer_timeout)
 	$metronome/TSDN.pressed.connect($tl.updateTimeSig.bind(-1))
@@ -35,7 +35,7 @@ func _ready() -> void:
 	sttime = Time.get_ticks_msec()
 	
 	buttonArr = [$soundButtons/grid1/SoundButton,$soundButtons/grid1/SoundButton2,$soundButtons/grid1/SoundButton3,$soundButtons/grid1/SoundButton4,$soundButtons/grid1/SoundButton5,$soundButtons/grid1/SoundButton6,$soundButtons/grid1/SoundButton7,$soundButtons/grid1/SoundButton8,$soundButtons/grid1/SoundButton9,$soundButtons/grid1/SoundButton10,$soundButtons/grid1/SoundButton11,$soundButtons/grid1/SoundButton12]
-
+	$tl.colors = $soundButtons/grid1.colours
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -62,17 +62,8 @@ func _on_timer_timeout() -> void:
 func _on_record_button_pressed() -> void:
 	rec = !rec
 
-func _on_play_button_pressed() -> void:
-	play = !play
-	if play:
-		$PlayButton.icon=pauseIcon
-	else:
-		$PlayButton.icon=playIcon
-	
-	
-	
-	
-	
-	
-	
-	
+func _on_play_button_released() -> void:
+	play = true
+
+func _on_pause_button_released() -> void:
+	play = false
