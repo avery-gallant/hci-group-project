@@ -26,10 +26,11 @@ func _draw() -> void:
 			draw_line(Vector2(tlX+n+m-l,tlY+40),Vector2(tlX+n+m-l,tlY+60),Color("000000"),3)
 	draw_line(Vector2(tlX+len,tlY),Vector2(tlX+len,tlY+100),Color("000000"),6)
 	for i in notes.keys():
-		for j in len(notes[i]):
-			var y=tlY+50-float(len(notes[i])-1)*10/2+j*10
-			var n = float(i)/(timeSig*8)*len
-			draw_circle(Vector2(tlX+n,y),5,Color("ffffff"))
+		if (i<=timeSig*8):
+			for j in len(notes[i]):
+				var y=tlY+50-float(len(notes[i])-1)*10/2+j*10
+				var n = float(i)/(timeSig*8)*len
+				draw_circle(Vector2(tlX+n,y),5,Color("ffffff"))
 	#draw_line(Vector2(tlX,tlY+50),Vector2(tlX+len,tlY+50),Color("000000"),10)
 		
 func updateNotes(notesIn):
