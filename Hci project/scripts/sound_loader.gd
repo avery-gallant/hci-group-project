@@ -53,7 +53,7 @@ func scanFile():
 		
 		var text = Label.new()
 		text.name = "text"
-		text.text = button.name
+		text.text = button.name.replace("_wav", "")
 		
 		var lum = colour.get_luminance()
 		print(lum)
@@ -65,6 +65,7 @@ func scanFile():
 		#style.bg_color = Color(1, 1, 1)
 		#text.add_theme_stylebox_override("normal", style)
 		text.add_theme_font_override("font", load("res://fonts/courbd.ttf"))
+		text.add_theme_font_size_override("font_size", 25)
 		text.set("z_index", 1)
 		button.add_child(text)
 		
