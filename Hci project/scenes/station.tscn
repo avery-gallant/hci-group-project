@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://4sdb1k7368h3"]
+[gd_scene load_steps=19 format=3 uid="uid://4sdb1k7368h3"]
 
 [ext_resource type="Script" path="res://scenes/station.gd" id="1_87bjf"]
 [ext_resource type="Texture2D" uid="uid://c3pochkd1tv15" path="res://texture/background.png" id="1_ya6gq"]
@@ -15,8 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://cbgypx10k5bgh" path="res://texture/recordbutton_pressed.png" id="9_l8jh6"]
 [ext_resource type="Script" path="res://scenes/node_2d.gd" id="10_ex8ua"]
 [ext_resource type="Texture2D" uid="uid://c1xyobhmibo5w" path="res://texture/pausebutton_pressed.png" id="12_fkxsy"]
-[ext_resource type="Texture2D" uid="uid://5ry3aoe1w4nt" path="res://texture/garbage.png" id="16_afpp7"]
 [ext_resource type="Texture2D" uid="uid://c71gir076jhaw" path="res://texture/light_off.png" id="15_6oct2"]
+[ext_resource type="Texture2D" uid="uid://5ry3aoe1w4nt" path="res://texture/garbage.png" id="16_afpp7"]
+[ext_resource type="Script" path="res://scenes/clear_button.gd" id="18_hpnmb"]
 
 [node name="Station" type="Node2D"]
 script = ExtResource("1_87bjf")
@@ -134,10 +135,11 @@ len = 900
 [node name="ClearButton" type="TouchScreenButton" parent="."]
 position = Vector2(1358, 868)
 texture_normal = ExtResource("16_afpp7")
+script = ExtResource("18_hpnmb")
 
 [connection signal="released" from="playbackButtons/PlayButton" to="." method="_on_play_button_released"]
 [connection signal="released" from="playbackButtons/PlayButton" to="playbackButtons" method="_on_play_button_released"]
 [connection signal="pressed" from="playbackButtons/RecordButton" to="." method="_on_record_button_pressed"]
 [connection signal="released" from="playbackButtons/PauseButton" to="." method="_on_pause_button_released"]
 [connection signal="released" from="playbackButtons/PauseButton" to="playbackButtons" method="_on_pause_button_released"]
-[connection signal="released" from="ClearButton" to="." method="_on_clear_button_released"]
+[connection signal="released" from="ClearButton" to="ClearButton" method="_on_released"]

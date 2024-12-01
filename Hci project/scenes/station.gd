@@ -16,18 +16,10 @@ var lightIdx : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$soundButtons/grid1/SoundButton.pressed.connect(notePress.bind(1))
-	$soundButtons/grid1/SoundButton2.pressed.connect(notePress.bind(2))
-	$soundButtons/grid1/SoundButton3.pressed.connect(notePress.bind(3))
-	$soundButtons/grid1/SoundButton4.pressed.connect(notePress.bind(4))
-	$soundButtons/grid1/SoundButton5.pressed.connect(notePress.bind(5))
-	$soundButtons/grid1/SoundButton6.pressed.connect(notePress.bind(6))
-	$soundButtons/grid1/SoundButton7.pressed.connect(notePress.bind(7))
-	$soundButtons/grid1/SoundButton8.pressed.connect(notePress.bind(8))
-	$soundButtons/grid1/SoundButton9.pressed.connect(notePress.bind(9))
-	$soundButtons/grid1/SoundButton10.pressed.connect(notePress.bind(10))
-	$soundButtons/grid1/SoundButton11.pressed.connect(notePress.bind(11))
-	$soundButtons/grid1/SoundButton12.pressed.connect(notePress.bind(12))
+	
+	var soundButtons = $soundButtons/grid1.get_children()
+	for i in soundButtons.size():
+		soundButtons[i].pressed.connect(notePress.bind(i+1))
 	 
 	bpm=$metronome.bpm
 	$metronome/Timer.timeout.connect(_on_timer_timeout)
@@ -46,7 +38,11 @@ func _process(delta: float) -> void:
 	pass
 
 func notePress(id):
-	if (rec&&buttonArr[id-1].active):
+	if ($ClearButton.on):
+		for i in timeArr.keys():
+			timeArr[i].erase(id)
+		$tl.updateNotes(timeArr)
+	elif (rec&&buttonArr[id-1].active):
 		if(timeArr.has(noteCount)):
 			for i in timeArr[noteCount]:
 				if i == id:
@@ -83,8 +79,3 @@ func _on_pause_button_released() -> void:
 	play = false
 	$tl.doTime = rec or play
 	$tl.queue_redraw()
-
-
-func _on_clear_button_released() -> void:
-	timeArr = {}
-	$tl.updateNotes(timeArr)

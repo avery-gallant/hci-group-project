@@ -109,7 +109,6 @@ func onReleased(name : String, i: int):
 		var file = path + name.replace("_", ".")
 		loadSound.emit(file)
 		get_parent().self_modulate = colour
-		print(i)
 		
 func onEntered(name: String):
 	var file = path + name.replace("_", ".")
