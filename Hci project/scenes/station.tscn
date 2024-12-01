@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://4sdb1k7368h3"]
+[gd_scene load_steps=24 format=3 uid="uid://4sdb1k7368h3"]
 
 [ext_resource type="Script" path="res://scenes/station.gd" id="1_87bjf"]
 [ext_resource type="Texture2D" uid="uid://c3pochkd1tv15" path="res://texture/background.png" id="1_ya6gq"]
@@ -19,6 +19,10 @@
 [ext_resource type="Texture2D" uid="uid://5ry3aoe1w4nt" path="res://texture/garbage.png" id="16_afpp7"]
 [ext_resource type="Script" path="res://scenes/clear_button.gd" id="18_hpnmb"]
 [ext_resource type="Script" path="res://scenes/v_slider.gd" id="19_e0ogu"]
+[ext_resource type="Texture2D" uid="uid://d27tnjcn3xoyn" path="res://texture/slider.png" id="19_n06og"]
+[ext_resource type="Texture2D" uid="uid://dpurthygj10su" path="res://texture/slider_pressed.png" id="20_qh602"]
+[ext_resource type="Texture2D" uid="uid://cuqwexvkuyry3" path="res://texture/volume_icon.png" id="22_6ov26"]
+[ext_resource type="Texture2D" uid="uid://d3gl8oyrxue8j" path="res://texture/volume_icon_muted.png" id="22_ov171"]
 
 [node name="Station" type="Node2D"]
 script = ExtResource("1_87bjf")
@@ -122,7 +126,7 @@ texture_normal = ExtResource("8_i3kg2")
 texture_pressed = ExtResource("12_fkxsy")
 
 [node name="light" type="Sprite2D" parent="playbackButtons"]
-position = Vector2(148, -77)
+position = Vector2(148, -24)
 texture = ExtResource("15_6oct2")
 
 [node name="tl" type="Node2D" parent="."]
@@ -141,10 +145,21 @@ offset_left = 1638.0
 offset_top = 163.0
 offset_right = 1766.0
 offset_bottom = 695.0
+theme_override_icons/grabber = ExtResource("19_n06og")
+theme_override_icons/grabber_highlight = ExtResource("20_qh602")
 max_value = 1.0
 step = 0.001
 script = ExtResource("19_e0ogu")
 bus_name = "Master"
+
+[node name="volumeicon" type="CheckButton" parent="VSlider"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 548.0
+offset_right = 108.0
+offset_bottom = 628.0
+theme_override_icons/checked = ExtResource("22_ov171")
+theme_override_icons/unchecked = ExtResource("22_6ov26")
 
 [connection signal="released" from="playbackButtons/PlayButton" to="." method="_on_play_button_released"]
 [connection signal="released" from="playbackButtons/PlayButton" to="playbackButtons" method="_on_play_button_released"]
@@ -152,3 +167,4 @@ bus_name = "Master"
 [connection signal="released" from="playbackButtons/PauseButton" to="." method="_on_pause_button_released"]
 [connection signal="released" from="playbackButtons/PauseButton" to="playbackButtons" method="_on_pause_button_released"]
 [connection signal="released" from="ClearButton" to="ClearButton" method="_on_released"]
+[connection signal="toggled" from="VSlider/volumeicon" to="VSlider" method="_on_volumeicon_toggled"]
