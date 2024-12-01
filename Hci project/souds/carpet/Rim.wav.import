@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://b7n7yecplsndx"
-path="res://.godot/imported/it.wav-faee855521e126cb1db656378952ce26.sample"
+uid="uid://cqhootyxle35h"
+path="res://.godot/imported/Rim.wav-669b6f1f18bd7650ca75a53386393968.sample"
 
 [deps]
 
-source_file="res://souds/carpet/it.wav"
-dest_files=["res://.godot/imported/it.wav-faee855521e126cb1db656378952ce26.sample"]
+source_file="res://souds/carpet/Rim.wav"
+dest_files=["res://.godot/imported/Rim.wav-669b6f1f18bd7650ca75a53386393968.sample"]
 
 [params]
 

@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://bufup0gu8kwfd"
-path="res://.godot/imported/Check.wav-d3e24c714532d830cf43ecce0a2ac3df.sample"
+uid="uid://gj7mq2y2lhnu"
+path="res://.godot/imported/Guiro.wav-768f1501d4dd6ba31a6dcba055216969.sample"
 
 [deps]
 
-source_file="res://souds/carpet/Check.wav"
-dest_files=["res://.godot/imported/Check.wav-d3e24c714532d830cf43ecce0a2ac3df.sample"]
+source_file="res://souds/carpet/Guiro.wav"
+dest_files=["res://.godot/imported/Guiro.wav-768f1501d4dd6ba31a6dcba055216969.sample"]
 
 [params]
 

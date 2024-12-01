@@ -31,6 +31,7 @@ func _ready():
 	add_child(music)
 	audioLoader = AudioLoader.new()
 	
+	
 	colour = get_parent().colour
 	
 func scanFile():
@@ -72,6 +73,7 @@ func scanFile():
 		button.add_child(sprite)
 		
 		$buttons.add_child(button)
+		print(file)
 		
 		file = dir.get_next()
 		file = dir.get_next()
