@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://bufup0gu8kwfd"
-path="res://.godot/imported/Check.wav-d3e24c714532d830cf43ecce0a2ac3df.sample"
+uid="uid://bbsn300p28440"
+path="res://.godot/imported/Cowbell.wav-25b3fb474afb066a5c45d63e2ad45d04.sample"
 
 [deps]
 
-source_file="res://souds/carpet/Check.wav"
-dest_files=["res://.godot/imported/Check.wav-d3e24c714532d830cf43ecce0a2ac3df.sample"]
+source_file="res://souds/carpet/Cowbell.wav"
+dest_files=["res://.godot/imported/Cowbell.wav-25b3fb474afb066a5c45d63e2ad45d04.sample"]
 
 [params]
 

@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://dnuokhuwiuotq"
-path="res://.godot/imported/inthe.wav-4428f9780cea41f0dc1e08907360c751.sample"
+uid="uid://plt7wjpmc105"
+path="res://.godot/imported/Cymbal.wav-5de500b27026126b11b41dd44da9e9b2.sample"
 
 [deps]
 
-source_file="res://souds/carpet/inthe.wav"
-dest_files=["res://.godot/imported/inthe.wav-4428f9780cea41f0dc1e08907360c751.sample"]
+source_file="res://souds/carpet/Cymbal.wav"
+dest_files=["res://.godot/imported/Cymbal.wav-5de500b27026126b11b41dd44da9e9b2.sample"]
 
 [params]
 
