@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://scenes/node_2d.gd" id="10_ex8ua"]
 [ext_resource type="Texture2D" uid="uid://c1xyobhmibo5w" path="res://texture/pausebutton_pressed.png" id="12_fkxsy"]
 [ext_resource type="Texture2D" uid="uid://5ry3aoe1w4nt" path="res://texture/garbage.png" id="16_afpp7"]
+[ext_resource type="Texture2D" uid="uid://c71gir076jhaw" path="res://texture/light_off.png" id="15_6oct2"]
 
 [node name="Station" type="Node2D"]
 script = ExtResource("1_87bjf")
@@ -119,6 +120,10 @@ texture_pressed = ExtResource("9_l8jh6")
 position = Vector2(244, 0)
 texture_normal = ExtResource("8_i3kg2")
 texture_pressed = ExtResource("12_fkxsy")
+
+[node name="light" type="Sprite2D" parent="playbackButtons"]
+position = Vector2(148, -77)
+texture = ExtResource("15_6oct2")
 
 [node name="tl" type="Node2D" parent="."]
 script = ExtResource("10_ex8ua")

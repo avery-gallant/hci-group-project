@@ -28,9 +28,9 @@ timeSig = 4
 
 [node name="toggleMetronome" type="CheckButton" parent="."]
 offset_left = -42.0
-offset_top = 600.0
+offset_top = 582.0
 offset_right = 42.0
-offset_bottom = 680.0
+offset_bottom = 662.0
 theme_override_fonts/font = ExtResource("7_ah0oe")
 theme_override_icons/checked = ExtResource("2_f4sqg")
 theme_override_icons/unchecked = ExtResource("3_bwbv0")
@@ -51,14 +51,15 @@ script = ExtResource("2_iyw8x")
 
 [node name="Label" type="Label" parent="bpmSlider"]
 layout_mode = 0
-offset_left = -16.0
-offset_right = 94.0
-offset_bottom = 27.0
+offset_left = -6.0
+offset_top = 9.50079
+offset_right = 104.0
+offset_bottom = 56.5008
 rotation = 1.5708
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_ah0oe")
-theme_override_font_sizes/font_size = 23
-text = "BPM : 90"
+theme_override_font_sizes/font_size = 40
+text = "90"
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
