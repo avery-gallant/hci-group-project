@@ -15,7 +15,7 @@ var noteCount=0
 var on = false
 
 func _ready():
-	beat = -1
+	beat = 0
 	bpm = $bpmSlider.value
 	$Timer.wait_time=(1/(bpm/60))/8
 	
@@ -23,7 +23,7 @@ func _ready():
 	shape.z_index=z_index-2
 	shape.set_joint_mode(shape.LINE_JOINT_ROUND)
 	shape.default_color = Color("000000")
-	shape.width=15
+	shape.width = 15
 	shape.closed = true
 	add_child(shape)
 	
@@ -46,7 +46,6 @@ func _process(delta):
 	queue_redraw()
 
 func _on_timer_timeout():
-	
 	noteCount+=1
 	if (noteCount==8):
 		noteCount=0
