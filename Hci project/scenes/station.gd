@@ -51,11 +51,6 @@ func _process(delta: float) -> void:
 func notePress(id):
 	if (rec&&buttonArr[id-1].active):
 		if(timeArr.has(noteCount)):
-			var position
-			if($metronome/Timer.time_left>$metronome/Timer.wait_time):
-				position = (noteCount+1)%8*$metronome.timeSig
-			else:
-				position = (noteCount)%8*$metronome.timeSig
 			for i in timeArr[noteCount]:
 				if i == id:
 					return
@@ -80,7 +75,7 @@ func _on_record_button_pressed() -> void:
 	$playbackButtons/light.texture = lightTextures[lightIdx]
 	rec = !rec
 	$tl.doTime = rec or play
-	$tl.queue_redraw()
+	$tl.queue_redraw()#436
 
 func _on_play_button_released() -> void:
 	play = true
@@ -91,3 +86,8 @@ func _on_pause_button_released() -> void:
 	play = false
 	$tl.doTime = rec or play
 	$tl.queue_redraw()
+
+
+func _on_clear_button_released() -> void:
+	timeArr = {}
+	$tl.updateNotes(timeArr)
