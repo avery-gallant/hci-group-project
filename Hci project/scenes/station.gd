@@ -18,7 +18,7 @@ var lightIdx : int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	var soundButtons = $soundButtons/grid1.get_children()
+	var soundButtons = $soundButtons.get_children()
 	for i in soundButtons.size():
 		soundButtons[i].pressed.connect(notePress.bind(i+1))
 	 
