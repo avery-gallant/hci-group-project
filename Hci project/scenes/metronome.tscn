@@ -1,12 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://lhgkadjaplcf"]
+[gd_scene load_steps=15 format=3 uid="uid://lhgkadjaplcf"]
 
 [ext_resource type="Script" path="res://scripts/metronome.gd" id="1_da4oh"]
 [ext_resource type="Texture2D" uid="uid://d0520se1lyl8n" path="res://texture/metronome_grabber.png" id="2_cwptv"]
+[ext_resource type="Texture2D" uid="uid://bkfpry6eitkox" path="res://texture/metronome_toggle_on.png" id="2_f4sqg"]
 [ext_resource type="Script" path="res://scripts/h_slider.gd" id="2_iyw8x"]
 [ext_resource type="AudioStream" uid="uid://clmohirre0rv" path="res://metronomebig.wav" id="3_0gny5"]
+[ext_resource type="Texture2D" uid="uid://cmms6ll2ik35b" path="res://texture/metronome_toggle.png" id="3_bwbv0"]
 [ext_resource type="Texture2D" uid="uid://d0k306tgqqc1x" path="res://texture/metronome_grabber_grabbed.png" id="3_rrwut"]
 [ext_resource type="AudioStream" uid="uid://basrwdvrj1fs5" path="res://metronomesmall.wav" id="4_vbxja"]
 [ext_resource type="Texture2D" uid="uid://b80ee2q2ihlxk" path="res://texture/uparrow.png" id="7_260x1"]
+[ext_resource type="FontFile" uid="uid://bnvaoprxivu65" path="res://fonts/courbd.ttf" id="7_ah0oe"]
 [ext_resource type="Texture2D" uid="uid://dva5nulhybr32" path="res://texture/uparrow_pressed.png" id="8_mfvro"]
 [ext_resource type="Texture2D" uid="uid://fq34avo8cx2x" path="res://texture/downarrow.png" id="9_de1fy"]
 [ext_resource type="Texture2D" uid="uid://cr37216saldsd" path="res://texture/downarrow_pressed.png" id="10_jldkr"]
@@ -23,23 +26,18 @@ script = ExtResource("1_da4oh")
 timeSig = 4
 
 [node name="toggleMetronome" type="CheckButton" parent="."]
-offset_left = -140.0
+offset_left = -42.0
 offset_top = 600.0
-offset_bottom = 631.0
-scale = Vector2(2, 2)
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-text = "Metronome"
+offset_right = 42.0
+offset_bottom = 680.0
+theme_override_fonts/font = ExtResource("7_ah0oe")
+theme_override_icons/checked = ExtResource("2_f4sqg")
+theme_override_icons/unchecked = ExtResource("3_bwbv0")
 
 [node name="bpmSlider" type="HSlider" parent="."]
-offset_left = -25.0
+offset_left = -64.0
 offset_top = 532.0
-offset_right = 507.0
+offset_right = 468.0
 offset_bottom = 660.0
 rotation = -1.5708
 theme_override_icons/grabber = ExtResource("2_cwptv")
@@ -52,13 +50,15 @@ script = ExtResource("2_iyw8x")
 
 [node name="Label" type="Label" parent="bpmSlider"]
 layout_mode = 0
-offset_top = -23.0
-offset_right = 95.0
-offset_bottom = 23.0
+offset_left = -16.0
+offset_right = 94.0
+offset_bottom = 27.0
 rotation = 1.5708
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_ah0oe")
 theme_override_font_sizes/font_size = 23
 text = "BPM : 90"
+horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
@@ -71,19 +71,21 @@ volume_db = 5.0
 stream = ExtResource("4_vbxja")
 volume_db = 19.857
 
-[node name="TSUP" type="TouchScreenButton" parent="."]
-position = Vector2(70, 700)
-texture_normal = ExtResource("7_260x1")
-texture_pressed = ExtResource("8_mfvro")
+[node name="updown" type="Node2D" parent="."]
+position = Vector2(98, 705)
 
-[node name="TSDN" type="TouchScreenButton" parent="."]
-position = Vector2(70, 770)
+[node name="TSDN" type="TouchScreenButton" parent="updown"]
+position = Vector2(0, 72)
 texture_normal = ExtResource("9_de1fy")
 texture_pressed = ExtResource("10_jldkr")
+
+[node name="TSUP" type="TouchScreenButton" parent="updown"]
+texture_normal = ExtResource("7_260x1")
+texture_pressed = ExtResource("8_mfvro")
 
 [connection signal="toggled" from="toggleMetronome" to="." method="_on_toggle_metronome_toggled"]
 [connection signal="drag_ended" from="bpmSlider" to="." method="_on_h_slider_drag_ended"]
 [connection signal="value_changed" from="bpmSlider" to="." method="_on_bpm_slider_value_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="TSUP" to="." method="_on_tsup_pressed"]
-[connection signal="pressed" from="TSDN" to="." method="_on_tsdn_pressed"]
+[connection signal="pressed" from="updown/TSDN" to="." method="_on_tsdn_pressed"]
+[connection signal="pressed" from="updown/TSUP" to="." method="_on_tsup_pressed"]
