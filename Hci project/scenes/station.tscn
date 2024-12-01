@@ -145,6 +145,7 @@ offset_left = 1638.0
 offset_top = 163.0
 offset_right = 1766.0
 offset_bottom = 695.0
+mouse_filter = 1
 theme_override_icons/grabber = ExtResource("19_n06og")
 theme_override_icons/grabber_highlight = ExtResource("20_qh602")
 max_value = 1.0

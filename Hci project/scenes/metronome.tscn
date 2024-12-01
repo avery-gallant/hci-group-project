@@ -34,6 +34,7 @@ offset_right = 468.0
 offset_bottom = 660.0
 rotation = -1.5708
 size_flags_horizontal = 4
+mouse_filter = 1
 theme_override_icons/grabber = ExtResource("2_cwptv")
 theme_override_icons/grabber_highlight = ExtResource("3_rrwut")
 theme_override_icons/grabber_disabled = ExtResource("2_cwptv")

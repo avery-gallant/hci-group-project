@@ -78,6 +78,8 @@ func scanFile():
 		sprite.modulate = colour
 		button.add_child(sprite)
 		
+		button.z_index = 2
+		
 		$buttons.add_child(button)
 		
 		file = dir.get_next()
