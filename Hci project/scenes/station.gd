@@ -30,12 +30,13 @@ func _ready() -> void:
 	 
 	bpm=$metronome.bpm
 	$metronome/Timer.timeout.connect(_on_timer_timeout)
-	$metronome/TSDN.pressed.connect($tl.updateTimeSig.bind(-1))
-	$metronome/TSUP.pressed.connect($tl.updateTimeSig.bind(1))
+	$metronome/updown/TSDN.pressed.connect($tl.updateTimeSig.bind(-1))
+	$metronome/updown/TSUP.pressed.connect($tl.updateTimeSig.bind(1))
 	sttime = Time.get_ticks_msec()
 	
 	buttonArr = [$soundButtons/grid1/SoundButton,$soundButtons/grid1/SoundButton2,$soundButtons/grid1/SoundButton3,$soundButtons/grid1/SoundButton4,$soundButtons/grid1/SoundButton5,$soundButtons/grid1/SoundButton6,$soundButtons/grid1/SoundButton7,$soundButtons/grid1/SoundButton8,$soundButtons/grid1/SoundButton9,$soundButtons/grid1/SoundButton10,$soundButtons/grid1/SoundButton11,$soundButtons/grid1/SoundButton12]
 	$tl.colors = $soundButtons/grid1.colours
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

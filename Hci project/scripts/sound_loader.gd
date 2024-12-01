@@ -58,6 +58,7 @@ func scanFile():
 		
 		#text.add_theme_color_override("font_outline_color", Color(0, 0, 0, 1))
 		#text.add_theme_constant_override("outline_size", 3)
+		text.add_theme_font_override("font", load("res://fonts/courbd.ttf"))
 		text.set("z_index", 1)
 		button.add_child(text)
 		
