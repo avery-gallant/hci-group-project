@@ -1,6 +1,7 @@
 extends TouchScreenButton
 var music
 var audio_loader
+var active:bool = false
 @export var id:int
 
 var c = Image.load_from_file("res://texture/button_pressed_empty.png"); 
@@ -60,3 +61,4 @@ func _on_sound_loader_load_sound(file) -> void:
 	pressedIcon = full_pressed
 	texture_normal = full_depressed
 	texture_pressed = full_pressed
+	active=true

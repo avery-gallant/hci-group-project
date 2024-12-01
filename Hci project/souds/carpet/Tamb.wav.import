@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://bufup0gu8kwfd"
-path="res://.godot/imported/Check.wav-d3e24c714532d830cf43ecce0a2ac3df.sample"
+uid="uid://cjggyfx5tpb5p"
+path="res://.godot/imported/Tamb.wav-eee2320878657cc26fe2aefbccbbdd50.sample"
 
 [deps]
 
-source_file="res://souds/carpet/Check.wav"
-dest_files=["res://.godot/imported/Check.wav-d3e24c714532d830cf43ecce0a2ac3df.sample"]
+source_file="res://souds/carpet/Tamb.wav"
+dest_files=["res://.godot/imported/Tamb.wav-eee2320878657cc26fe2aefbccbbdd50.sample"]
 
 [params]
 

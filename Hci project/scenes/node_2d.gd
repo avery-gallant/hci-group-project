@@ -8,6 +8,7 @@ var timeSig = 4
 var notes = {}
 var colors
 var beat=0
+var doTime:bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass#queue_redraw()
@@ -27,7 +28,8 @@ func _draw() -> void:
 			draw_line(Vector2(tlX+n+m,tlY+20),Vector2(tlX+n+m,tlY+80),Color("000000"),3)
 			draw_line(Vector2(tlX+n+m-l,tlY+40),Vector2(tlX+n+m-l,tlY+60),Color("000000"),3)
 	draw_line(Vector2(tlX+len,tlY),Vector2(tlX+len,tlY+100),Color("000000"),6)
-	draw_line(Vector2(tlX+len*(float(beat)/(timeSig*8)),tlY-20),Vector2(tlX+len*(float(beat)/(timeSig*8)),tlY-10),Color("000000"),6)
+	if (doTime):
+		draw_line(Vector2(tlX+len*(float(beat)/(timeSig*8)),tlY-20),Vector2(tlX+len*(float(beat)/(timeSig*8)),tlY-10),Color("000000"),6)
 	for i in notes.keys():
 		if (i<=timeSig*8):
 			for j in len(notes[i]):

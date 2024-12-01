@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://bufup0gu8kwfd"
-path="res://.godot/imported/Check.wav-d3e24c714532d830cf43ecce0a2ac3df.sample"
+uid="uid://dpypmr075t4p6"
+path="res://.godot/imported/Snare.wav-700972ee42da5a919c496e06969b7d5e.sample"
 
 [deps]
 
-source_file="res://souds/carpet/Check.wav"
-dest_files=["res://.godot/imported/Check.wav-d3e24c714532d830cf43ecce0a2ac3df.sample"]
+source_file="res://souds/carpet/Snare.wav"
+dest_files=["res://.godot/imported/Snare.wav-700972ee42da5a919c496e06969b7d5e.sample"]
 
 [params]
 
