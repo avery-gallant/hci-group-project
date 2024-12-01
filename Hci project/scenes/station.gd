@@ -13,21 +13,22 @@ var playIcon = ImageTexture.create_from_image(a);
 var pauseIcon = ImageTexture.create_from_image(b);
 var lightTextures: Array
 var lightIdx : int
+@export var selecting : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$soundButtons/grid1/SoundButton.pressed.connect(notePress.bind(1))
-	$soundButtons/grid1/SoundButton2.pressed.connect(notePress.bind(2))
-	$soundButtons/grid1/SoundButton3.pressed.connect(notePress.bind(3))
-	$soundButtons/grid1/SoundButton4.pressed.connect(notePress.bind(4))
-	$soundButtons/grid1/SoundButton5.pressed.connect(notePress.bind(5))
-	$soundButtons/grid1/SoundButton6.pressed.connect(notePress.bind(6))
-	$soundButtons/grid1/SoundButton7.pressed.connect(notePress.bind(7))
-	$soundButtons/grid1/SoundButton8.pressed.connect(notePress.bind(8))
-	$soundButtons/grid1/SoundButton9.pressed.connect(notePress.bind(9))
-	$soundButtons/grid1/SoundButton10.pressed.connect(notePress.bind(10))
-	$soundButtons/grid1/SoundButton11.pressed.connect(notePress.bind(11))
-	$soundButtons/grid1/SoundButton12.pressed.connect(notePress.bind(12))
+	$soundButtons/SoundButton.pressed.connect(notePress.bind(1))
+	$soundButtons/SoundButton2.pressed.connect(notePress.bind(2))
+	$soundButtons/SoundButton3.pressed.connect(notePress.bind(3))
+	$soundButtons/SoundButton4.pressed.connect(notePress.bind(4))
+	$soundButtons/SoundButton5.pressed.connect(notePress.bind(5))
+	$soundButtons/SoundButton6.pressed.connect(notePress.bind(6))
+	$soundButtons/SoundButton7.pressed.connect(notePress.bind(7))
+	$soundButtons/SoundButton8.pressed.connect(notePress.bind(8))
+	$soundButtons/SoundButton9.pressed.connect(notePress.bind(9))
+	$soundButtons/SoundButton10.pressed.connect(notePress.bind(10))
+	$soundButtons/SoundButton11.pressed.connect(notePress.bind(11))
+	$soundButtons/SoundButton12.pressed.connect(notePress.bind(12))
 	 
 	bpm=$metronome.bpm
 	$metronome/Timer.timeout.connect(_on_timer_timeout)
@@ -35,11 +36,13 @@ func _ready() -> void:
 	$metronome/updown/TSUP.pressed.connect($tl.updateTimeSig.bind(1))
 	sttime = Time.get_ticks_msec()
 	
-	buttonArr = [$soundButtons/grid1/SoundButton,$soundButtons/grid1/SoundButton2,$soundButtons/grid1/SoundButton3,$soundButtons/grid1/SoundButton4,$soundButtons/grid1/SoundButton5,$soundButtons/grid1/SoundButton6,$soundButtons/grid1/SoundButton7,$soundButtons/grid1/SoundButton8,$soundButtons/grid1/SoundButton9,$soundButtons/grid1/SoundButton10,$soundButtons/grid1/SoundButton11,$soundButtons/grid1/SoundButton12]
-	$tl.colors = $soundButtons/grid1.colours
+	buttonArr = [$soundButtons/SoundButton,$soundButtons/grid1/SoundButton2,$soundButtons/grid1/SoundButton3,$soundButtons/grid1/SoundButton4,$soundButtons/grid1/SoundButton5,$soundButtons/grid1/SoundButton6,$soundButtons/grid1/SoundButton7,$soundButtons/grid1/SoundButton8,$soundButtons/grid1/SoundButton9,$soundButtons/grid1/SoundButton10,$soundButtons/grid1/SoundButton11,$soundButtons/grid1/SoundButton12]
+	$tl.colors = $soundButtons.colours
 	
 	lightTextures = [load("res://texture/light_off.png"), load("res://texture/light_on.png")]
 	lightIdx = 0
+	
+	selecting = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

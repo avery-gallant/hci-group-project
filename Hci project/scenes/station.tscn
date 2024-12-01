@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scenes/station.gd" id="1_87bjf"]
 [ext_resource type="Texture2D" uid="uid://c3pochkd1tv15" path="res://texture/background.png" id="1_ya6gq"]
-[ext_resource type="Script" path="res://scenes/grid_1.gd" id="2_hsirv"]
 [ext_resource type="PackedScene" uid="uid://bkqm36ehhqyxk" path="res://scenes/soundbutton.tscn" id="2_y2sr4"]
+[ext_resource type="Script" path="res://scenes/sound_buttons.gd" id="3_iq42h"]
 [ext_resource type="Texture2D" uid="uid://bpk8glcsnr8kx" path="res://texture/button_background.png" id="4_ojpy8"]
 [ext_resource type="PackedScene" uid="uid://lhgkadjaplcf" path="res://scenes/metronome.tscn" id="5_8ahy3"]
 [ext_resource type="Texture2D" uid="uid://ddyup8d3jy758" path="res://texture/Screenshot 2024-11-02 173809.png" id="5_kq2bn"]
@@ -25,66 +25,64 @@ z_as_relative = false
 position = Vector2(960, 540)
 texture = ExtResource("1_ya6gq")
 
-[node name="soundButtons" type="Node2D" parent="."]
+[node name="grid underlay" type="Sprite2D" parent="."]
+position = Vector2(960, 428)
+texture = ExtResource("4_ojpy8")
 
-[node name="grid1" type="Node2D" parent="soundButtons"]
+[node name="soundButtons" type="Node2D" parent="."]
 position = Vector2(420, 22)
-script = ExtResource("2_hsirv")
+script = ExtResource("3_iq42h")
 spacing = 16.0
 buttonWidth = 250.0
 dimensions = Vector2(4, 3)
 
-[node name="SoundButton" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
+[node name="SoundButton" parent="soundButtons" instance=ExtResource("2_y2sr4")]
 z_index = 1
 id = 1
 
-[node name="SoundButton2" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
+[node name="SoundButton2" parent="soundButtons" instance=ExtResource("2_y2sr4")]
 z_index = 1
 id = 2
 
-[node name="SoundButton3" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
+[node name="SoundButton3" parent="soundButtons" instance=ExtResource("2_y2sr4")]
 z_index = 1
 id = 3
 
-[node name="SoundButton4" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
+[node name="SoundButton4" parent="soundButtons" instance=ExtResource("2_y2sr4")]
 z_index = 1
 id = 4
 
-[node name="SoundButton5" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
+[node name="SoundButton5" parent="soundButtons" instance=ExtResource("2_y2sr4")]
 z_index = 1
 id = 5
 
-[node name="SoundButton6" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
+[node name="SoundButton6" parent="soundButtons" instance=ExtResource("2_y2sr4")]
 z_index = 1
 id = 6
 
-[node name="SoundButton7" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
+[node name="SoundButton7" parent="soundButtons" instance=ExtResource("2_y2sr4")]
 z_index = 1
 id = 7
 
-[node name="SoundButton8" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
+[node name="SoundButton8" parent="soundButtons" instance=ExtResource("2_y2sr4")]
 z_index = 1
 id = 8
 
-[node name="SoundButton9" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
+[node name="SoundButton9" parent="soundButtons" instance=ExtResource("2_y2sr4")]
 z_index = 1
 id = 9
 
-[node name="SoundButton10" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
+[node name="SoundButton10" parent="soundButtons" instance=ExtResource("2_y2sr4")]
 z_index = 1
 id = 10
 
-[node name="SoundButton11" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
+[node name="SoundButton11" parent="soundButtons" instance=ExtResource("2_y2sr4")]
 z_index = 1
 id = 11
 
-[node name="SoundButton12" parent="soundButtons/grid1" instance=ExtResource("2_y2sr4")]
+[node name="SoundButton12" parent="soundButtons" instance=ExtResource("2_y2sr4")]
 z_index = 1
 id = 12
-
-[node name="Sprite2D" type="Sprite2D" parent="soundButtons"]
-position = Vector2(960, 428)
-texture = ExtResource("4_ojpy8")
 
 [node name="sounbank" type="Button" parent="."]
 visible = false

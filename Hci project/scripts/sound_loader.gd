@@ -22,7 +22,7 @@ signal loadSound
 func _ready():
 	await get_parent().get_parent()._ready()
 	colour = get_parent().colour
-	$bigButton/CollisionShape2D.shape.radius = 2.5*ringRadius
+	$bigButton/CollisionShape2D.shape.radius = 5.5*ringRadius
 	visible = false
 	scanFile()
 	placeButtons()
@@ -51,6 +51,7 @@ func scanFile():
 		var shape = CollisionShape2D.new()
 		shape.name = "shape"
 		shape.shape = CircleShape2D.new()
+		shape.z_index = 4
 		button.add_child(shape)
 		
 		var text = Label.new()
@@ -118,10 +119,6 @@ func onEntered(name: String):
 	music.pitch_scale = 1
 	music.play()
 	
-
-func onBigRelease():
-	visible = false
-
 func _on_big_button_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if(event is InputEventScreenTouch): 
 		visible = false
