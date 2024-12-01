@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://4sdb1k7368h3"]
+[gd_scene load_steps=18 format=3 uid="uid://4sdb1k7368h3"]
 
 [ext_resource type="Script" path="res://scenes/station.gd" id="1_87bjf"]
 [ext_resource type="Texture2D" uid="uid://c3pochkd1tv15" path="res://texture/background.png" id="1_ya6gq"]
@@ -15,8 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://cbgypx10k5bgh" path="res://texture/recordbutton_pressed.png" id="9_l8jh6"]
 [ext_resource type="Script" path="res://scenes/node_2d.gd" id="10_ex8ua"]
 [ext_resource type="Texture2D" uid="uid://c1xyobhmibo5w" path="res://texture/pausebutton_pressed.png" id="12_fkxsy"]
-[ext_resource type="Texture2D" uid="uid://5ry3aoe1w4nt" path="res://texture/garbage.png" id="16_afpp7"]
 [ext_resource type="Texture2D" uid="uid://c71gir076jhaw" path="res://texture/light_off.png" id="15_6oct2"]
+[ext_resource type="Texture2D" uid="uid://5ry3aoe1w4nt" path="res://texture/garbage.png" id="16_afpp7"]
 
 [node name="Station" type="Node2D"]
 script = ExtResource("1_87bjf")

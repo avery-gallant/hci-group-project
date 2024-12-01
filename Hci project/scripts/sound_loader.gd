@@ -31,9 +31,6 @@ func _ready():
 	add_child(music)
 	audioLoader = AudioLoader.new()
 	
-	
-	colour = get_parent().colour
-	
 func scanFile():
 	dir = DirAccess.open(path)
 	dir.list_dir_begin()
@@ -58,8 +55,15 @@ func scanFile():
 		text.name = "text"
 		text.text = button.name
 		
-		#text.add_theme_color_override("font_outline_color", Color(0, 0, 0, 1))
-		#text.add_theme_constant_override("outline_size", 3)
+		var lum = colour.get_luminance()
+		print(lum)
+		if(lum > 160):
+			text.add_theme_color_override("font_color", Color(0, 0, 0,))
+		else:
+			text.add_theme_color_override("font_color", Color(255, 255, 255))
+		#var style = StyleBoxFlat.new()
+		#style.bg_color = Color(1, 1, 1)
+		#text.add_theme_stylebox_override("normal", style)
 		text.add_theme_font_override("font", load("res://fonts/courbd.ttf"))
 		text.set("z_index", 1)
 		button.add_child(text)
@@ -74,7 +78,6 @@ func scanFile():
 		button.add_child(sprite)
 		
 		$buttons.add_child(button)
-		print(file)
 		
 		file = dir.get_next()
 		file = dir.get_next()
@@ -102,8 +105,11 @@ func placeButtons():
 func placeOnCircle(radius : float, theta: float, i: int):
 	$buttons.get_child(i).get_node("shape").shape.radius = buttonRadius
 	$buttons.get_child(i).get_node("text").position = -$buttons.get_child(i).get_node("text").size/2
-	$buttons.get_child(i).position.x = radius*cos(theta)
-	$buttons.get_child(i).position.y = radius*sin(theta)
+	var c = 1
+	if(get_parent().get_index() > 7):
+		c = -1
+	$buttons.get_child(i).position.x = c*radius*cos(theta)
+	$buttons.get_child(i).position.y = c*radius*sin(theta)
 	
 func onReleased(name : String, i: int):
 	if(!visible):
