@@ -18,7 +18,6 @@ func _ready():
 	beat = -1
 	bpm = $bpmSlider.value
 	$Timer.wait_time=(1/(bpm/60))/8
-	$bpmSlider/Label.text = str(bpm)
 	
 	shape = Line2D.new()
 	shape.z_index=z_index-2

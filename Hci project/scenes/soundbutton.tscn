@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b6sqifukpoait" path="res://texture/button.png" id="1_776vd"]
 [ext_resource type="Script" path="res://scripts/TouchScreenButton.gd" id="1_ofvg8"]
 [ext_resource type="Texture2D" uid="uid://t1r8r8hlpam6" path="res://texture/button_pressed.png" id="2_5wegh"]
-[ext_resource type="PackedScene" path="res://scenes/sound_loader.tscn" id="4_6au7k"]
+[ext_resource type="PackedScene" uid="uid://0200lxkam878" path="res://scenes/sound_loader.tscn" id="4_6au7k"]
 
 [node name="SoundButton" type="TouchScreenButton"]
 texture_normal = ExtResource("1_776vd")

@@ -31,8 +31,6 @@ func _ready():
 	add_child(music)
 	audioLoader = AudioLoader.new()
 	
-	$Label.set("theme_override_colors/font_color", Color(0, 0, 0, 1))
-	
 	colour = get_parent().colour
 	
 func scanFile():
@@ -60,6 +58,7 @@ func scanFile():
 		
 		#text.add_theme_color_override("font_outline_color", Color(0, 0, 0, 1))
 		#text.add_theme_constant_override("outline_size", 3)
+		text.add_theme_font_override("font", load("res://fonts/courbd.ttf"))
 		text.set("z_index", 1)
 		button.add_child(text)
 		

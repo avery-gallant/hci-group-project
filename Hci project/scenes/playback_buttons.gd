@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	$PlayButton.visible = false
+	$PauseButton.visible = false
 
 func _on_pause_button_released() -> void:
 	$PauseButton.visible = false

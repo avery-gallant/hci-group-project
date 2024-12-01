@@ -27,7 +27,7 @@ texture = ExtResource("1_ya6gq")
 [node name="soundButtons" type="Node2D" parent="."]
 
 [node name="grid1" type="Node2D" parent="soundButtons"]
-position = Vector2(420, 0)
+position = Vector2(420, 22)
 script = ExtResource("2_hsirv")
 spacing = 16.0
 buttonWidth = 250.0
@@ -82,7 +82,7 @@ z_index = 1
 id = 12
 
 [node name="Sprite2D" type="Sprite2D" parent="soundButtons"]
-position = Vector2(960, 406)
+position = Vector2(960, 428)
 texture = ExtResource("4_ojpy8")
 
 [node name="sounbank" type="Button" parent="."]
@@ -96,12 +96,12 @@ icon = ExtResource("5_kq2bn")
 
 [node name="metronome" parent="." instance=ExtResource("5_8ahy3")]
 z_index = 1
-position = Vector2(185, 141)
-shapeOffsetY = 740
+position = Vector2(218, 163)
+shapeOffsetY = 778
 shapeScale = 50
 
 [node name="playbackButtons" type="Node2D" parent="."]
-position = Vector2(1484, 868)
+position = Vector2(1484, 876)
 script = ExtResource("6_wah7c")
 
 [node name="PlayButton" type="TouchScreenButton" parent="playbackButtons"]
