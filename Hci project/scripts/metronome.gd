@@ -43,7 +43,8 @@ func _ready():
 		innerShape.add_point(pt)
 
 func _process(delta):
-	beatPt = shapePts[beat].lerp(shapePts[(1 + beat)%timeSig], ((($Timer.wait_time*noteCount)+$Timer.wait_time-$Timer.time_left)/($Timer.wait_time*8))**8)
+	
+	beatPt = shapePts[min(beat,shapePts.size()-1)].lerp(shapePts[(1 + beat)%timeSig], ((($Timer.wait_time*noteCount)+$Timer.wait_time-$Timer.time_left)/($Timer.wait_time*8))**8)
 	queue_redraw()
 
 func _on_timer_timeout():
@@ -73,8 +74,8 @@ func _on_tsup_pressed() -> void:
 func _on_tsdn_pressed() -> void:
 	if timeSig>1:
 		timeSig-=1
-		if (beat>=timeSig):
-			beat=timeSig-1
+		#if (beat>=timeSig):
+			#beat=timeSig-1
 		setPts()
 
 func setPts():
