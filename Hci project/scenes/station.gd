@@ -11,7 +11,8 @@ var a = Image.load_from_file("res://texture/pausebutton.png");
 var b = Image.load_from_file("res://texture/playbutton.png");
 var playIcon = ImageTexture.create_from_image(a); 
 var pauseIcon = ImageTexture.create_from_image(b);
-
+var lightTextures: Array
+var lightIdx : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -36,6 +37,9 @@ func _ready() -> void:
 	
 	buttonArr = [$soundButtons/grid1/SoundButton,$soundButtons/grid1/SoundButton2,$soundButtons/grid1/SoundButton3,$soundButtons/grid1/SoundButton4,$soundButtons/grid1/SoundButton5,$soundButtons/grid1/SoundButton6,$soundButtons/grid1/SoundButton7,$soundButtons/grid1/SoundButton8,$soundButtons/grid1/SoundButton9,$soundButtons/grid1/SoundButton10,$soundButtons/grid1/SoundButton11,$soundButtons/grid1/SoundButton12]
 	$tl.colors = $soundButtons/grid1.colours
+	
+	lightTextures = [load("res://texture/light_off.png"), load("res://texture/light_on.png")]
+	lightIdx = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -62,6 +66,8 @@ func _on_timer_timeout() -> void:
 			buttonArr[item-1].playNote()
 
 func _on_record_button_pressed() -> void:
+	lightIdx = (lightIdx + 1)%lightTextures.size()
+	$playbackButtons/light.texture = lightTextures[lightIdx]
 	rec = !rec
 
 func _on_play_button_released() -> void:
