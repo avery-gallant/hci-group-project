@@ -88,6 +88,5 @@ func setPts():
 		shape.add_point(pt)
 		innerShape.add_point(pt)
 
-
 func _on_bpm_slider_value_changed(value: float) -> void:
 	$Timer.wait_time=(1/(value/60))/8

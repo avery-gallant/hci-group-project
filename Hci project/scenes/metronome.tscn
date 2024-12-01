@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://lhgkadjaplcf"]
+[gd_scene load_steps=14 format=3 uid="uid://lhgkadjaplcf"]
 
 [ext_resource type="Script" path="res://scripts/metronome.gd" id="1_da4oh"]
 [ext_resource type="Texture2D" uid="uid://d0520se1lyl8n" path="res://texture/metronome_grabber.png" id="2_cwptv"]
@@ -13,14 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://dva5nulhybr32" path="res://texture/uparrow_pressed.png" id="8_mfvro"]
 [ext_resource type="Texture2D" uid="uid://fq34avo8cx2x" path="res://texture/downarrow.png" id="9_de1fy"]
 [ext_resource type="Texture2D" uid="uid://cr37216saldsd" path="res://texture/downarrow_pressed.png" id="10_jldkr"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5f4i2"]
-bg_color = Color(0.617014, 0.624845, 0.259357, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 5
-corner_detail = 12
 
 [node name="metronome" type="Node2D"]
 script = ExtResource("1_da4oh")
@@ -43,7 +35,7 @@ offset_bottom = 660.0
 rotation = -1.5708
 theme_override_icons/grabber = ExtResource("2_cwptv")
 theme_override_icons/grabber_highlight = ExtResource("3_rrwut")
-theme_override_styles/slider = SubResource("StyleBoxFlat_5f4i2")
+theme_override_icons/grabber_disabled = ExtResource("2_cwptv")
 min_value = 40.0
 max_value = 218.0
 value = 90.0

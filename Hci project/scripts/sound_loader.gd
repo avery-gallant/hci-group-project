@@ -22,7 +22,7 @@ signal loadSound
 func _ready():
 	await get_parent().get_parent()._ready()
 	colour = get_parent().colour
-	$bigButton/CollisionShape2D.shape.radius = 2.5*ringRadius
+	$bigButton/CollisionShape2D.shape.radius = 5.5*ringRadius
 	visible = false
 	scanFile()
 	placeButtons()
@@ -30,9 +30,6 @@ func _ready():
 	music = AudioStreamPlayer.new()
 	add_child(music)
 	audioLoader = AudioLoader.new()
-	
-	
-	colour = get_parent().colour
 	
 func scanFile():
 	dir = DirAccess.open(path)
@@ -51,14 +48,22 @@ func scanFile():
 		var shape = CollisionShape2D.new()
 		shape.name = "shape"
 		shape.shape = CircleShape2D.new()
+		shape.z_index = 4
 		button.add_child(shape)
 		
 		var text = Label.new()
 		text.name = "text"
 		text.text = button.name
 		
-		#text.add_theme_color_override("font_outline_color", Color(0, 0, 0, 1))
-		#text.add_theme_constant_override("outline_size", 3)
+		var lum = colour.get_luminance()
+		print(lum)
+		if(lum > 160):
+			text.add_theme_color_override("font_color", Color(0, 0, 0,))
+		else:
+			text.add_theme_color_override("font_color", Color(255, 255, 255))
+		#var style = StyleBoxFlat.new()
+		#style.bg_color = Color(1, 1, 1)
+		#text.add_theme_stylebox_override("normal", style)
 		text.add_theme_font_override("font", load("res://fonts/courbd.ttf"))
 		text.set("z_index", 1)
 		button.add_child(text)
@@ -73,7 +78,6 @@ func scanFile():
 		button.add_child(sprite)
 		
 		$buttons.add_child(button)
-		print(file)
 		
 		file = dir.get_next()
 		file = dir.get_next()
@@ -101,8 +105,11 @@ func placeButtons():
 func placeOnCircle(radius : float, theta: float, i: int):
 	$buttons.get_child(i).get_node("shape").shape.radius = buttonRadius
 	$buttons.get_child(i).get_node("text").position = -$buttons.get_child(i).get_node("text").size/2
-	$buttons.get_child(i).position.x = radius*cos(theta)
-	$buttons.get_child(i).position.y = radius*sin(theta)
+	var c = 1
+	if(get_parent().get_index() > 7):
+		c = -1
+	$buttons.get_child(i).position.x = c*radius*cos(theta)
+	$buttons.get_child(i).position.y = c*radius*sin(theta)
 	
 func onReleased(name : String, i: int):
 	if(!visible):
@@ -117,10 +124,6 @@ func onEntered(name: String):
 	music.pitch_scale = 1
 	music.play()
 	
-
-func onBigRelease():
-	visible = false
-
 func _on_big_button_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if(event is InputEventScreenTouch): 
 		visible = false
