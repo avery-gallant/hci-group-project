@@ -69,6 +69,9 @@ func _on_timer_timeout() -> void:
 func _on_record_button_pressed() -> void:
 	lightIdx = (lightIdx + 1)%lightTextures.size()
 	$playbackButtons/light.texture = lightTextures[lightIdx]
+	var met = $metronome/toggleMetronome
+	if(!rec): met.button_pressed = true
+	else: met.button_pressed = false
 	rec = !rec
 	$tl.doTime = rec or play
 	$tl.queue_redraw()#436
