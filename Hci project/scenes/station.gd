@@ -46,14 +46,20 @@ func notePress(id):
 			timeArr[i].erase(id)
 		$tl.updateNotes(timeArr)
 	elif (rec&&buttonArr[id-1].active):
-		if(timeArr.has(noteCount)):
-			for i in timeArr[noteCount]:
+		var note
+		if($metronome/Timer.time_left < 0.5): note = noteCount
+		else: 
+			note = noteCount + 1
+			if (note>=8*$metronome.timeSig):
+				note=0
+		if(timeArr.has(note)):
+			for i in timeArr[note]:
 				if i == id:
 					return
 			
-			timeArr[noteCount]+=[id]
+			timeArr[note]+=[id]
 		else:
-			timeArr[noteCount]=[id]
+			timeArr[note]=[id]
 		$tl.updateNotes(timeArr)
 
 func _on_timer_timeout() -> void:
