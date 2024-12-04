@@ -19,8 +19,10 @@ func _process(delta: float) -> void:
 func _on_released() -> void:
 	on=!on
 	if (on):
+		get_parent().get_node("background").texture = load("res://texture/background_dark.png")
 		texture_normal = open_texture
 		texture_pressed = open_texture
 	else:
+		get_parent().get_node("background").texture = load("res://texture/background.png")
 		texture_normal = closed_texture
 		texture_pressed = closed_texture
